@@ -69,7 +69,7 @@ model.add(Conv3D(22, kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu'
 model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(1, 1, 1))) 
 
 model.add(Flatten())
-model.add(Dense(4096, activation='relu')) ####
+model.add(Dense(262, activation='relu'))
 model.add(Dense(len(set(proteinLabels)), activation='softmax'))
 
 model.compile(loss=keras.losses.categorical_crossentropy,
