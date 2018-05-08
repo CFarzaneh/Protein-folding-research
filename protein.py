@@ -6,8 +6,7 @@ from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense
 from sklearn.preprocessing import OneHotEncoder
 from numpy import array
 import pandas as pd
-
-fin = open("pdb1a1x.txt", 'r')
+from tqdm import tqdm
 
 # Hyperparameters
 Window_width = 2
@@ -22,35 +21,51 @@ Coord_Z_min = -10
 batchOfTensors = []
 proteinLabels = []
 
-for line in fin:
-	line = line.strip().split('\t')
-	protein = line.pop(0)
-	print(protein)
-	proteinLabels.append(protein)
+Path = "2coor"
 
-	coord_list = np.array([])
-	for i in line:
-		j = i.split(',')
-		coord_list = np.concatenate([coord_list, j])
+if not os.path.exists(Path + '_out'):
+	os.makedirs(Path + '_out')
 
-	coord_list = np.reshape(coord_list,(-1,4))
-	nrows = coord_list.shape[0]
+filelist = os.listdir(Path)
+for i in filelist:
+	if i.endswith(".txt"):
+		fileName = i.split('.')[0]
+		if os.path.isfile(Path + '_out/' + fileName + '.npy'):
+			batchOfTensors = np.load(Path + '_out/' + fileName + '.npy')
+			proteinLabels = np.load(Path + '_out/' + fileName + '_protein' + '.npy')
+		else:
+			with open(Path + '/' + i, 'r') as f:
+				for line in f:
+					line = line.strip().split('\t')
+					protein = line.pop(0)
+					print(protein)
+					proteinLabels.append(protein)
 
-	tensor = np.zeros((Grid_X_size,Grid_Y_size,Grid_Z_size,22)) #4D-Tensor
+					coord_list = np.array([])
+					for i in line:
+						j = i.split(',')
+						coord_list = np.concatenate([coord_list, j])
 
-	for x in range(0,Grid_X_size):
-		Xx = (x*Grid_cell_size)+Coord_X_min
-		for y in range(0,Grid_Y_size):
-			Yy = (y*Grid_Y_size)+Coord_Y_min
-			for z in range(0,Grid_Z_size):
-				Zz = (z*Grid_cell_size)+Coord_Z_min
-				for m in range(0,nrows):
-					Channel = int(coord_list[m][0])
-					DistanceSq = ((Xx - float(coord_list[m][1]))**2)+((Yy - float(coord_list[m][2]))**2)+((Zz - float(coord_list[m][3]))**2)
-					Contribution = np.exp(-DistanceSq/(2*(Window_width**2)))
-					tensor[x][y][z][Channel] += Contribution
+					coord_list = np.reshape(coord_list,(-1,4))
+					nrows = coord_list.shape[0]
 
-	batchOfTensors.append(tensor)
+					tensor = np.zeros((Grid_X_size,Grid_Y_size,Grid_Z_size,22)) #4D-Tensor
+
+					for x in tqdm(range(0,Grid_X_size)):
+						Xx = (x*Grid_cell_size)+Coord_X_min
+						for y in range(0,Grid_Y_size):
+							Yy = (y*Grid_Y_size)+Coord_Y_min
+							for z in range(0,Grid_Z_size):
+								Zz = (z*Grid_cell_size)+Coord_Z_min
+								for m in range(0,nrows):
+									Channel = int(coord_list[m][0])
+									DistanceSq = ((Xx - float(coord_list[m][1]))**2)+((Yy - float(coord_list[m][2]))**2)+((Zz - float(coord_list[m][3]))**2)
+									Contribution = np.exp(-DistanceSq/(2*(Window_width**2)))
+									tensor[x][y][z][Channel] += Contribution
+
+					batchOfTensors.append(tensor)
+				np.save(Path + '_out/' + fileName, batchOfTensors)
+				np.save(Path + '_out/' + fileName + '_protein', proteinLabels)
 
 input_data = np.array(batchOfTensors)
 
@@ -61,6 +76,7 @@ protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,
 onehot_array = protein_labels_1hot.toarray()
 
 input_shape = input_data[0].shape
+print(input_shape)
 
 model = Sequential()
 model.add(Conv3D(22, kernel_size=(5, 5, 5), strides=(1, 1, 1), activation='relu', input_shape=input_shape))
@@ -77,7 +93,7 @@ model.compile(loss=keras.losses.categorical_crossentropy,
               metrics=['accuracy'])
 
 model.fit(input_data, onehot_array,
-          batch_size=5,
+          batch_size=10,
           epochs=20,
           verbose=1,
           validation_split=0.1)
