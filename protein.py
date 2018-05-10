@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import keras
+import mmap
 import os
 
 # Hyperparameters
@@ -27,6 +28,14 @@ Path = "inputFiles"
 if not os.path.exists(Path + '_out'):
 	os.makedirs(Path + '_out')
 
+def get_num_lines(file_path):
+	fp = open(file_path, "r+")
+	buf = mmap.mmap(fp.fileno(), 0)
+	lines = 0
+	while buf.readline():
+		lines += 1
+	return lines
+
 filelist = os.listdir(Path)
 for i in filelist:
 	if i.endswith(".txt"):
@@ -41,10 +50,10 @@ for i in filelist:
 			with open(Path + '/' + i, 'r') as f:
 				fileTensor = []
 				fileProteins = []
-				for line in f:
+				for line in tqdm(f, total=get_num_lines(Path + '/' + i)):
 					line = line.strip().split('\t')
 					protein = line.pop(0)
-					print(protein)
+					#print(protein)
 					
 					proteinLabels.append(protein)
 					fileProteins.append(protein)
@@ -59,7 +68,7 @@ for i in filelist:
 
 					tensor = np.zeros((Grid_X_size,Grid_Y_size,Grid_Z_size,22)) #4D-Tensor
 
-					for x in tqdm(range(0,Grid_X_size)):
+					for x in range(0,Grid_X_size):
 						Xx = (x*Grid_cell_size)+Coord_X_min
 						for y in range(0,Grid_Y_size):
 							Yy = (y*Grid_Y_size)+Coord_Y_min
@@ -100,8 +109,8 @@ model.add(Dense(1024, activation='relu'))
 model.add(Dense(len(set(proteinLabels)), activation='softmax'))
 
 model.compile(loss=keras.losses.categorical_crossentropy,
-	      optimizer=keras.optimizers.Adam(lr=0.01),
-	      metrics=['accuracy'])
+		  optimizer=keras.optimizers.Adam(lr=0.01),
+		  metrics=['accuracy'])
 
 model.fit(input_data, onehot_array,
 	  batch_size=10,
