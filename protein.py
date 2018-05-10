@@ -1,12 +1,13 @@
-import os
-import numpy as np
-import keras
-from keras.models import Sequential
 from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense
 from sklearn.preprocessing import OneHotEncoder
+from keras.models import Sequential
 from numpy import array
-import pandas as pd
 from tqdm import tqdm
+import pandas as pd
+import numpy as np
+import pickle
+import keras
+import os
 
 # Hyperparameters
 Window_width = 2
@@ -21,7 +22,7 @@ Coord_Z_min = -10
 batchOfTensors = []
 proteinLabels = []
 
-Path = "2coor"
+Path = "inputFiles"
 
 if not os.path.exists(Path + '_out'):
 	os.makedirs(Path + '_out')
@@ -30,16 +31,23 @@ filelist = os.listdir(Path)
 for i in filelist:
 	if i.endswith(".txt"):
 		fileName = i.split('.')[0]
-		if os.path.isfile(Path + '_out/' + fileName + '.npy'):
-			batchOfTensors = np.load(Path + '_out/' + fileName + '.npy')
-			proteinLabels = np.load(Path + '_out/' + fileName + '_protein' + '.npy')
+		print(i)
+		if os.path.isfile(Path + '_out/' + fileName + '.txt'):
+			with open(Path + '_out/' + fileName + '.txt', 'rb') as fp:
+				batchOfTensors += pickle.load(fp)
+			with open(Path + '_out/' + fileName + '_protein' + '.txt', 'rb') as fp:
+				proteinLabels += pickle.load(fp)
 		else:
 			with open(Path + '/' + i, 'r') as f:
+				fileTensor = []
+				fileProteins = []
 				for line in f:
 					line = line.strip().split('\t')
 					protein = line.pop(0)
 					print(protein)
+					
 					proteinLabels.append(protein)
+					fileProteins.append(protein)
 
 					coord_list = np.array([])
 					for i in line:
@@ -64,10 +72,14 @@ for i in filelist:
 									tensor[x][y][z][Channel] += Contribution
 
 					batchOfTensors.append(tensor)
-				np.save(Path + '_out/' + fileName, batchOfTensors)
-				np.save(Path + '_out/' + fileName + '_protein', proteinLabels)
+					fileTensor.append(tensor)
+				with open(Path + '_out/' + fileName + '.txt', 'wb') as fp:
+					pickle.dump(fileTensor, fp)
+				with open(Path + '_out/' + fileName + '_protein' + '.txt', 'wb') as fp:
+					pickle.dump(fileProteins, fp)
 
 input_data = np.array(batchOfTensors)
+print(input_data.shape)
 
 proteinLabels = np.array(proteinLabels)
 protein_label_encoder = pd.factorize(proteinLabels)
@@ -76,7 +88,6 @@ protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,
 onehot_array = protein_labels_1hot.toarray()
 
 input_shape = input_data[0].shape
-print(input_shape)
 
 model = Sequential()
 model.add(Conv3D(22, kernel_size=(5, 5, 5), strides=(1, 1, 1), activation='relu', input_shape=input_shape))
@@ -85,15 +96,15 @@ model.add(Conv3D(22, kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu'
 model.add(MaxPooling3D(pool_size=(2, 2, 2), strides=(1, 1, 1))) 
 
 model.add(Flatten())
-model.add(Dense(262, activation='relu'))
+model.add(Dense(1024, activation='relu'))
 model.add(Dense(len(set(proteinLabels)), activation='softmax'))
 
 model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.Adam(lr=0.01),
-              metrics=['accuracy'])
+	      optimizer=keras.optimizers.Adam(lr=0.01),
+	      metrics=['accuracy'])
 
 model.fit(input_data, onehot_array,
-          batch_size=10,
-          epochs=20,
-          verbose=1,
-          validation_split=0.1)
+	  batch_size=10,
+	  epochs=5,
+	  verbose=1,
+	  validation_split=0.1)
