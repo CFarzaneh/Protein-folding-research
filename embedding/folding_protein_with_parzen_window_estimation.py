@@ -124,9 +124,10 @@ zero_channel21_4D_val = zero_dict_channel_21(grid_X_size,grid_Y_size,grid_Z_size
 protein_grid_3D_val = protein_grid(grid_X_size,grid_Y_size,grid_Z_size,coord_X_min,coord_Y_min,coord_Z_min)
 
 # Path of text files and storing tensors/labels
-path = "/home/atharva/Desktop/2.coor/"
-path_tensor = "/home/atharva/Desktop/tensor_data/"
-path_label = "/home/atharva/Desktop/tensor_label/"
+#path = "/home/atharva/Desktop/2.coor/"
+path = "/media/cfarzaneh/8c714815-42fb-49fc-9f64-c62e1cce198e/Datasets/ProteinFolding/test/"
+path_tensor = "/home/cfarzaneh/Desktop/tensor_data/"
+path_label = "/home/cfarzaneh/Desktop/tensor_label/"
 
 # List of all the files (10163 files)
 file_list = os.listdir(path)
@@ -141,5 +142,3 @@ for txt_file in file_list[:1000]:
         file_data(path,txt_file,protein_grid_3D_val,zero_channel21_4D_val,window_width,path_tensor,path_label)
     count +=1
     print ("------------------",count)
-        
-

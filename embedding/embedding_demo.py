@@ -6,11 +6,27 @@ from keras.models import Model
 
 # Just checking on a single file 
 # For all the 1000 file, you can use each file as a batch
-data = np.load("/home/atharva/Desktop/tensor_data/"+"pdb4g9e_data.npy")
-label = np.load("/home/atharva/Desktop/tensor_label/"+"pdb4g9e_label.npy")
+#data = np.load("/home/cfarzaneh/Desktop/tensor_data/"+"pdb4g9e_data.npy")
+#label = np.load("/home/cfarzaneh/Desktop/tensor_label/"+"pdb4g9e_label.npy")
 
-data.shape
-label.shape
+dataPath = "/home/cfarzaneh/Desktop/tensor_data/"
+labelPath = "/home/cfarzaneh/Desktop/tensor_label/"
+
+filelist = os.listdir(dataPath)
+data = []
+label = []
+
+for i in filelist:
+    print(i)
+    data.append(np.load(dataPath+i))
+    fileName = i.split('_')[0]
+    label.append(np.load(labelPath+fileName+"_label.npy"))
+
+data = np.concatenate(data, axis=0)
+label = np.concatenate(label, axis=0)
+
+print(data.shape)
+print(label.shape)
 
 # Change label to one-hot encoding
 # For all the file, you need to club all the labels files together and then change into one-hot encoding for sync
@@ -21,11 +37,9 @@ protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,
 onehot_array = protein_labels_1hot.toarray()
 
 print(onehot_array.shape)
-print(onehot_array[254])
 
-data1 = data.reshape((548, 21, 18, 18, 18,1))
-
-data1.shape
+data1 = data.reshape((-1, 21, 18, 18, 18,1))
+print(data1.shape)
 
 # For parallel 21 computations, Create 21 list to insert the model
 data2 = [[] for _ in range(21)]
@@ -33,8 +47,6 @@ for sample in data1:
     for ind,val in enumerate(sample):
         data2[ind].append(val)
 data2 = [np.array(i) for i in data2]
-
-len(data2), data2[0].shape
 
 # Demo Architecture 
 import keras
