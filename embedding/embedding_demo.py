@@ -3,14 +3,16 @@ import os
 import pandas as pd
 from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Input, Add
 from keras.models import Model
+import livelossplot
+import keras
 
 # Just checking on a single file 
 # For all the 1000 file, you can use each file as a batch
 #data = np.load("/home/cfarzaneh/Desktop/tensor_data/"+"pdb4g9e_data.npy")
 #label = np.load("/home/cfarzaneh/Desktop/tensor_label/"+"pdb4g9e_label.npy")
 
-dataPath = "/home/cfarzaneh/Desktop/tensor_data/"
-labelPath = "/home/cfarzaneh/Desktop/tensor_label/"
+dataPath = "/media/cf15/8c714815-42fb-49fc-9f64-c62e1cce198e/Datasets/tensor_data/"
+labelPath = "/media/cf15/8c714815-42fb-49fc-9f64-c62e1cce198e/Datasets/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
@@ -49,7 +51,8 @@ for sample in data1:
 data2 = [np.array(i) for i in data2]
 
 # Demo Architecture 
-import keras
+plot_losses = livelossplot.PlotLossesKeras()
+
 def parallel_computation(inputs):
     convs = []
     for i in range(21):
@@ -75,7 +78,8 @@ model.compile(loss=keras.losses.categorical_crossentropy,
 
 model.fit(data2, onehot_array,
       batch_size=10,
-      epochs=5,
+      epochs=50,
       verbose=1,
+      callbacks=[plot_losses],
       validation_split=0.2)
 
