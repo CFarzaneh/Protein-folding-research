@@ -3,16 +3,14 @@ import os
 import pandas as pd
 from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Input, Add
 from keras.models import Model
-import livelossplot
+#import livelossplot
 import keras
 
 # Just checking on a single file 
 # For all the 1000 file, you can use each file as a batch
-#data = np.load("/home/cfarzaneh/Desktop/tensor_data/"+"pdb4g9e_data.npy")
-#label = np.load("/home/cfarzaneh/Desktop/tensor_label/"+"pdb4g9e_label.npy")
 
-dataPath = "/media/cf15/8c714815-42fb-49fc-9f64-c62e1cce198e/Datasets/tensor_data/"
-labelPath = "/media/cf15/8c714815-42fb-49fc-9f64-c62e1cce198e/Datasets/tensor_label/"
+dataPath = "/Users/cfarzaneh/Desktop/tensor_data/"
+labelPath = "/Users/cfarzaneh/Desktop/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
@@ -40,7 +38,7 @@ onehot_array = protein_labels_1hot.toarray()
 
 print(onehot_array.shape)
 
-data1 = data.reshape((-1, 21, 18, 18, 18,1))
+data1 = data.reshape((-1, 21, 19, 19, 19, 1))
 print(data1.shape)
 
 # For parallel 21 computations, Create 21 list to insert the model
@@ -51,20 +49,30 @@ for sample in data1:
 data2 = [np.array(i) for i in data2]
 
 # Demo Architecture 
-plot_losses = livelossplot.PlotLossesKeras()
+#plot_losses = livelossplot.PlotLossesKeras()
 
 def parallel_computation(inputs):
     convs = []
     for i in range(21):
-        conv = Conv3D(3,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu', input_shape=(18,18,18,1))(inputs[i])
+        conv = Conv3D(3,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,1))(inputs[i])
         convs.append(conv)
     return keras.layers.Add()(convs)
     
-inputs = [Input(shape=(18,18,18,1)) for _ in range(21)]
+inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
 adds = parallel_computation(inputs)
-conv1 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu', input_shape=(18,18,18,3))(adds)
+
+conv1 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
 pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
-flatten1 = Flatten()(pool1)
+
+conv2 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool1) #3x3x3
+pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
+
+conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
+pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
+
+#another convolution layer, max pooling, another convolution layer 3x3x3
+
+flatten1 = Flatten()(pool3)
 dense1 = Dense(100, activation='relu')(flatten1)
 out = Dense(20, activation='softmax')(dense1)
 model = Model(input= inputs,output = out)
@@ -73,13 +81,11 @@ model.summary()
 
 # Run it
 model.compile(loss=keras.losses.categorical_crossentropy,
-          optimizer=keras.optimizers.Adam(lr=0.001),
+          optimizer=keras.optimizers.Adam(lr=0.001), #.0001 decrease learning rate
           metrics=['accuracy'])
 
 model.fit(data2, onehot_array,
       batch_size=10,
-      epochs=50,
+      epochs=20,
       verbose=1,
-      callbacks=[plot_losses],
       validation_split=0.2)
-
