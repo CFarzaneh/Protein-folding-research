@@ -133,9 +133,9 @@ protein_grid_3D_val = protein_grid(grid_X_size,grid_Y_size,grid_Z_size,coord_X_m
 
 # Path of text files and storing tensors/labels
 #path = "/home/atharva/Desktop/2.coor/"
-path = "/Users/cfarzaneh/Desktop/2.coor/"
-path_tensor = "/Users/cfarzaneh/Desktop/tensor_data/"
-path_label = "/Users/cfarzaneh/Desktop/tensor_label/"
+path = "/home/cameron/Desktop/2.coor/"
+path_tensor = "/media/cameron/HDD2/tensor_data/"
+path_label = "/media/cameron/HDD2/tensor_label/"
 
 # List of all the files (10163 files)
 file_list = os.listdir(path)

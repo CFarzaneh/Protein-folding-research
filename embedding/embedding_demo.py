@@ -3,14 +3,15 @@ import os
 import pandas as pd
 from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Input, Add
 from keras.models import Model
-#import livelossplot
+from keras.callbacks import TensorBoard
 import keras
+from time import time
 
 # Just checking on a single file 
 # For all the 1000 file, you can use each file as a batch
 
-dataPath = "/Users/cfarzaneh/Desktop/tensor_data/"
-labelPath = "/Users/cfarzaneh/Desktop/tensor_label/"
+dataPath = "/media/cameron/HDD2/tensor_data/"
+labelPath = "/media/cameron/HDD2/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
@@ -61,18 +62,18 @@ def parallel_computation(inputs):
 inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
 adds = parallel_computation(inputs)
 
-conv1 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
+conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
 pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
-
+'''
 conv2 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool1) #3x3x3
 pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
 conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
 pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
-
+'''
 #another convolution layer, max pooling, another convolution layer 3x3x3
 
-flatten1 = Flatten()(pool3)
+flatten1 = Flatten()(pool1)
 dense1 = Dense(100, activation='relu')(flatten1)
 out = Dense(20, activation='softmax')(dense1)
 model = Model(input= inputs,output = out)
@@ -84,8 +85,11 @@ model.compile(loss=keras.losses.categorical_crossentropy,
           optimizer=keras.optimizers.Adam(lr=0.001), #.0001 decrease learning rate
           metrics=['accuracy'])
 
+tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
+
 model.fit(data2, onehot_array,
       batch_size=10,
-      epochs=20,
+      epochs=10,
       verbose=1,
+      callbacks=[tensorboard],
       validation_split=0.2)
