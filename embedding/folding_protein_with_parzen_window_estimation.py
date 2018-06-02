@@ -133,7 +133,7 @@ protein_grid_3D_val = protein_grid(grid_X_size,grid_Y_size,grid_Z_size,coord_X_m
 
 # Path of text files and storing tensors/labels
 #path = "/home/atharva/Desktop/2.coor/"
-path = "/home/cameron/Desktop/2.coor/"
+path = "/home/2.coor/"
 path_tensor = "/media/cameron/HDD2/tensor_data/"
 path_label = "/media/cameron/HDD2/tensor_label/"
 
