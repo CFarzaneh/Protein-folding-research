@@ -13,8 +13,8 @@ from tqdm import tqdm
 
 # For all the 1000 file, you can use each file as a batch
 
-dataPath = "/home/femi/Desktop/tensor_data/"
-labelPath = "/home/femi/Desktop/tensor_label/"
+dataPath = "/media/femi/HDD2/tensor_data/"
+labelPath = "/media/femi/HDD2/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
@@ -50,7 +50,6 @@ print(onehot_array.shape)
 data1 = data.reshape((-1, 21, 19, 19, 19, 1))
 print(data1.shape)
 
-
 # For parallel 21 computations, Create 21 list to insert the model
 data2 = [[] for _ in range(21)]
 for sample in data1:
@@ -60,7 +59,6 @@ data2 = [np.array(i) for i in data2]
 
 #Demo Architecture
 #plot_losses = livelossplot.PlotLossesKeras()
-
 
 def parallel_computation(inputs):
     convs = []
@@ -78,7 +76,6 @@ norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
 conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(norm2)
 pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
-
 conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(pool1) #3x3x3
 norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
 pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(1, 1, 1))(norm3)
@@ -90,7 +87,7 @@ pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 #another convolution layer, max pooling, another convolution layer 3x3x3
 
 flatten1 = Flatten()(pool2)
-dense1 = Dense(300, activation='relu')(flatten1)
+dense1 = Dense(256, activation='relu')(flatten1)
 drop2 = Dropout(0.5)(dense1)
 out = Dense(20, activation='softmax')(drop2)
 model = Model(input= inputs,output = out)
@@ -99,7 +96,7 @@ model.summary()
 
 # Run it
 model.compile(loss=keras.losses.categorical_crossentropy,
-          optimizer=keras.optimizers.Adam(lr=0.001), #.0001 decrease learning rate
+          optimizer=keras.optimizers.Adam(lr=0.0001), #.0001 decrease learning rate
           metrics=['accuracy'])
 
 tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
@@ -110,8 +107,8 @@ tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 #reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=1, min_lr = 0.00025)
 
 model.fit(data2, onehot_array,
-      batch_size=20,
-      epochs=10,
+      batch_size=15,
+      epochs=50,
       verbose=1,
       callbacks=[tensorboard],
       validation_split=0.2)
