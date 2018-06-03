@@ -25,7 +25,6 @@ print("Loading data")
 j = 0
 numOfFilesToInput = 100 #Number of files to load at once
 for i in tqdm(filelist, total=numOfFilesToInput):
-    print(i)
     data.append(np.load(dataPath+i))
     fileName = i.split('_')[0]
     label.append(np.load(labelPath+fileName+"_label.npy"))
@@ -82,7 +81,7 @@ pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
 conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(pool1) #3x3x3
 norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
-pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(norm3)
+pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(1, 1, 1))(norm3)
 
 '''
 conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
