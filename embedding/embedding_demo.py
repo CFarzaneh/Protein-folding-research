@@ -47,9 +47,10 @@ encoder = OneHotEncoder()
 protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
 onehot_array = protein_labels_1hot.toarray()
 
+print(onehot_array.shape)
 data1 = data.reshape((-1, 21, 19, 19, 19, 1))
 print(data1.shape)
-print(onehot_array.shape)
+
 
 # For parallel 21 computations, Create 21 list to insert the model
 data2 = [[] for _ in range(21)]
@@ -76,11 +77,10 @@ conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', in
 norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
 
 conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(norm2)
-
 pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
-drop1 = Dropout(0.1)(pool1)
 
-conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', activity_regularizer=regularizers.l2(0.01))(drop1) #3x3x3
+
+conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(pool1) #3x3x3
 norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
 pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(norm3)
 
@@ -91,7 +91,7 @@ pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 #another convolution layer, max pooling, another convolution layer 3x3x3
 
 flatten1 = Flatten()(pool2)
-dense1 = Dense(300, activation='relu', activity_regularizer=regularizers.l2(0.01))(flatten1)
+dense1 = Dense(300, activation='relu')(flatten1)
 drop2 = Dropout(0.5)(dense1)
 out = Dense(20, activation='softmax')(drop2)
 model = Model(input= inputs,output = out)
