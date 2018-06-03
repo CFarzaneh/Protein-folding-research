@@ -1,33 +1,41 @@
 import numpy as np
 import os
 import pandas as pd
-from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Input, Add
+from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Input, Add, BatchNormalization, Dropout
 from keras.models import Model
-from keras.callbacks import TensorBoard
+from keras.callbacks import TensorBoard, ReduceLROnPlateau
+from keras import regularizers
 import keras
 from time import time
-
-# Just checking on a single file 
+from tqdm import tqdm
+# Just checking on a single file
 # For all the 1000 file, you can use each file as a batch
 
-dataPath = "/media/cameron/HDD2/tensor_data/"
-labelPath = "/media/cameron/HDD2/tensor_label/"
+dataPath = "/home/femi/Desktop/tensor_data/"
+labelPath = "/home/femi/Desktop/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
 label = []
 
-for i in filelist:
+print("Loading data")
+j =0
+numOfFilesToInput = 100
+
+for i in tqdm(filelist, total=numOfFilesToInput):
     print(i)
     data.append(np.load(dataPath+i))
     fileName = i.split('_')[0]
     label.append(np.load(labelPath+fileName+"_label.npy"))
+    if j == numOfFilesToInput:
+        break
+    j +=1
 
 data = np.concatenate(data, axis=0)
 label = np.concatenate(label, axis=0)
 
-print(data.shape)
-print(label.shape)
+#print(data.shape)
+#print(label.shape)
 
 # Change label to one-hot encoding
 # For all the file, you need to club all the labels files together and then change into one-hot encoding for sync
@@ -49,7 +57,7 @@ for sample in data1:
         data2[ind].append(val)
 data2 = [np.array(i) for i in data2]
 
-# Demo Architecture 
+# Demo Architecture
 #plot_losses = livelossplot.PlotLossesKeras()
 
 def parallel_computation(inputs):
@@ -58,24 +66,30 @@ def parallel_computation(inputs):
         conv = Conv3D(3,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,1))(inputs[i])
         convs.append(conv)
     return keras.layers.Add()(convs)
-    
+
 inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
 adds = parallel_computation(inputs)
 
 conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
-pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
-'''
-conv2 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool1) #3x3x3
-pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
+norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
+conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(norm2)
+pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
+
+conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', activity_regularizer=regularizers.l2(0.01))(pool1) #3x3x3
+norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
+pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(norm3)
+
+'''
 conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
 pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 '''
 #another convolution layer, max pooling, another convolution layer 3x3x3
 
-flatten1 = Flatten()(pool1)
-dense1 = Dense(100, activation='relu')(flatten1)
-out = Dense(20, activation='softmax')(dense1)
+flatten1 = Flatten()(pool2)
+dense1 = Dense(300, activation='relu', activity_regularizer=regularizers.l2(0.01))(flatten1)
+drop2 = Dropout(0.5)(dense1)
+out = Dense(20, activation='softmax')(drop2)
 model = Model(input= inputs,output = out)
 
 model.summary()
@@ -87,9 +101,14 @@ model.compile(loss=keras.losses.categorical_crossentropy,
 
 tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
+#Attempted to reduce learning rate to prevent it 'val_loss' from going up.
+#reduce_lr can be used as a callback during fitting
+
+#reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=1, min_lr = 0.00025)
+
 model.fit(data2, onehot_array,
-      batch_size=10,
-      epochs=10,
+      batch_size=20,
+      epochs=100,
       verbose=1,
       callbacks=[tensorboard],
       validation_split=0.2)
