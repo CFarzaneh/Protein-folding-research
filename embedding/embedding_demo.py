@@ -8,7 +8,12 @@ from keras import regularizers
 import keras
 from time import time
 from tqdm import tqdm
+<<<<<<< HEAD
 # Just checking on a single file
+=======
+
+# Just checking on a single file 
+>>>>>>> 326d6e61b457feb42e7814d8d1ff0a0f4602ba54
 # For all the 1000 file, you can use each file as a batch
 
 dataPath = "/home/femi/Desktop/tensor_data/"
@@ -19,17 +24,28 @@ data = []
 label = []
 
 print("Loading data")
+<<<<<<< HEAD
 j =0
 numOfFilesToInput = 100
 
 for i in tqdm(filelist, total=numOfFilesToInput):
     print(i)
+=======
+j = 0
+numOfFilesToInput = 100 #Number of files to load at once
+for i in tqdm(filelist, total=numOfFilesToInput):
+>>>>>>> 326d6e61b457feb42e7814d8d1ff0a0f4602ba54
     data.append(np.load(dataPath+i))
     fileName = i.split('_')[0]
     label.append(np.load(labelPath+fileName+"_label.npy"))
     if j == numOfFilesToInput:
+<<<<<<< HEAD
         break
     j +=1
+=======
+      break
+    j+=1
+>>>>>>> 326d6e61b457feb42e7814d8d1ff0a0f4602ba54
 
 data = np.concatenate(data, axis=0)
 label = np.concatenate(label, axis=0)
@@ -45,10 +61,9 @@ encoder = OneHotEncoder()
 protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
 onehot_array = protein_labels_1hot.toarray()
 
-print(onehot_array.shape)
-
 data1 = data.reshape((-1, 21, 19, 19, 19, 1))
 print(data1.shape)
+print(onehot_array.shape)
 
 # For parallel 21 computations, Create 21 list to insert the model
 data2 = [[] for _ in range(21)]
@@ -57,8 +72,12 @@ for sample in data1:
         data2[ind].append(val)
 data2 = [np.array(i) for i in data2]
 
+<<<<<<< HEAD
 # Demo Architecture
 #plot_losses = livelossplot.PlotLossesKeras()
+=======
+# Demo Architecture 
+>>>>>>> 326d6e61b457feb42e7814d8d1ff0a0f4602ba54
 
 def parallel_computation(inputs):
     convs = []
@@ -71,6 +90,7 @@ inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
 adds = parallel_computation(inputs)
 
 conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
+<<<<<<< HEAD
 norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
 conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(norm2)
 pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
@@ -90,6 +110,22 @@ flatten1 = Flatten()(pool2)
 dense1 = Dense(300, activation='relu', activity_regularizer=regularizers.l2(0.01))(flatten1)
 drop2 = Dropout(0.5)(dense1)
 out = Dense(20, activation='softmax')(drop2)
+=======
+conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(conv1)
+pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
+
+#conv2 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool1) #3x3x3
+#pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
+
+#conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
+#pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
+
+#another convolution layer, max pooling, another convolution layer 3x3x3
+
+flatten1 = Flatten()(pool1)
+dense1 = Dense(200, activation='relu')(flatten1)
+out = Dense(20, activation='softmax')(dense1)
+>>>>>>> 326d6e61b457feb42e7814d8d1ff0a0f4602ba54
 model = Model(input= inputs,output = out)
 
 model.summary()
@@ -108,7 +144,11 @@ tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
 model.fit(data2, onehot_array,
       batch_size=20,
+<<<<<<< HEAD
       epochs=100,
+=======
+      epochs=10,
+>>>>>>> 326d6e61b457feb42e7814d8d1ff0a0f4602ba54
       verbose=1,
       callbacks=[tensorboard],
       validation_split=0.2)
