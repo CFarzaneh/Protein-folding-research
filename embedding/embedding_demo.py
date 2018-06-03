@@ -73,13 +73,14 @@ inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
 adds = parallel_computation(inputs)
 
 conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
-
 norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
+
 conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(norm2)
+
 pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
+drop1 = Dropout(0.1)(pool1)
 
-
-conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', activity_regularizer=regularizers.l2(0.01))(pool1) #3x3x3
+conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', activity_regularizer=regularizers.l2(0.01))(drop1) #3x3x3
 norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
 pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(norm3)
 
@@ -111,7 +112,7 @@ tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
 model.fit(data2, onehot_array,
       batch_size=20,
-      epochs=100,
+      epochs=10,
       verbose=1,
       callbacks=[tensorboard],
       validation_split=0.2)
