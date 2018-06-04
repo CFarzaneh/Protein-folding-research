@@ -13,8 +13,8 @@ from tqdm import tqdm
 
 # For all the 1000 file, you can use each file as a batch
 
-dataPath = "/media/femi/HDD2/tensor_data/"
-labelPath = "/media/femi/HDD2/tensor_label/"
+dataPath = "/media/HDD2/tensor_data/"
+labelPath = "/media/HDD2/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
@@ -88,7 +88,7 @@ pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 
 flatten1 = Flatten()(pool2)
 dense1 = Dense(256, activation='relu')(flatten1)
-drop2 = Dropout(0.5)(dense1)
+drop2 = Dropout(0.25)(dense1)
 out = Dense(20, activation='softmax')(drop2)
 model = Model(input= inputs,output = out)
 
@@ -108,7 +108,7 @@ tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
 model.fit(data2, onehot_array,
       batch_size=15,
-      epochs=50,
+      epochs=100,
       verbose=1,
       callbacks=[tensorboard],
       validation_split=0.2)
