@@ -23,8 +23,9 @@ label = []
 print("Loading data")
 
 j = 0
-numOfFilesToInput = 100 #Number of files to load at once
+numOfFilesToInput = 1 #Number of files to load at once
 for i in tqdm(filelist, total=numOfFilesToInput):
+    print(i)
     data.append(np.load(dataPath+i))
     fileName = i.split('_')[0]
     label.append(np.load(labelPath+fileName+"_label.npy"))
@@ -35,7 +36,9 @@ for i in tqdm(filelist, total=numOfFilesToInput):
 data = np.concatenate(data, axis=0)
 label = np.concatenate(label, axis=0)
 
-#print(data.shape)
+print(label)
+
+print(data.shape)
 #print(label.shape)
 
 # Change label to one-hot encoding
@@ -70,33 +73,34 @@ def parallel_computation(inputs):
 inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
 adds = parallel_computation(inputs)
 
-conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
-norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
-
-conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(norm2)
-pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
-
-conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(pool1) #3x3x3
-norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
-pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(1, 1, 1))(norm3)
+conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
+#norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
+pool0 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
 
 '''
+conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(pool0)
+#pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(1, 1, 1))(conv2)
+
+conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv2) #3x3x3
+#norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
+pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
+
 conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
 pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 '''
 #another convolution layer, max pooling, another convolution layer 3x3x3
 
-flatten1 = Flatten()(pool2)
-dense1 = Dense(256, activation='relu')(flatten1)
-drop2 = Dropout(0.25)(dense1)
-out = Dense(20, activation='softmax')(drop2)
+flatten1 = Flatten()(pool0)
+dense1 = Dense(100, activation='relu')(flatten1)
+#drop2 = Dropout(0.25)(dense1)
+out = Dense(20, activation='softmax')(dense1)
 model = Model(input= inputs,output = out)
 
 model.summary()
 
 # Run it
 model.compile(loss=keras.losses.categorical_crossentropy,
-          optimizer=keras.optimizers.Adam(lr=0.0001), #.0001 decrease learning rate
+          optimizer=keras.optimizers.Adam(lr=0.01), #.0001 decrease learning rate
           metrics=['accuracy'])
 
 tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
@@ -107,7 +111,7 @@ tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 #reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=1, min_lr = 0.00025)
 
 model.fit(data2, onehot_array,
-      batch_size=15,
+      batch_size=100,
       epochs=100,
       verbose=1,
       callbacks=[tensorboard],
