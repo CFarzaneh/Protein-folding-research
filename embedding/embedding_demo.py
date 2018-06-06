@@ -4,17 +4,18 @@ import pandas as pd
 from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Input, Add, BatchNormalization, Dropout
 from keras.models import Model
 from keras.callbacks import TensorBoard, ReduceLROnPlateau
-from keras import regularizers
+from keras import regularizers, optimizers
 import keras
 from time import time
 from tqdm import tqdm
+from keras.models import load_model
 
 # Just checking on a single file
 
 # For all the 1000 file, you can use each file as a batch
 
-dataPath = "/media/HDD2/tensor_data/"
-labelPath = "/media/HDD2/tensor_label/"
+dataPath= "/media/femi/HDD2/tensor_data/"
+labelPath = "/media/femi/HDD2/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
@@ -23,9 +24,9 @@ label = []
 print("Loading data")
 
 j = 0
-numOfFilesToInput = 1 #Number of files to load at once
+numOfFilesToInput = 100 #Number of files to load at once
 for i in tqdm(filelist, total=numOfFilesToInput):
-    print(i)
+    #print(i)
     data.append(np.load(dataPath+i))
     fileName = i.split('_')[0]
     label.append(np.load(labelPath+fileName+"_label.npy"))
@@ -98,10 +99,17 @@ model = Model(input= inputs,output = out)
 
 model.summary()
 
+import os.path
+if os.path.isfile('my_model.h5') == True:
+    model = load_model('my_model.h5')
+    print("Model loaded")
+
 # Run it
+#sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum = 0.9)
 model.compile(loss=keras.losses.categorical_crossentropy,
-          optimizer=keras.optimizers.Adam(lr=0.01), #.0001 decrease learning rate
+          optimizer=keras.optimizers.Adam(lr=0.01),
           metrics=['accuracy'])
+
 
 tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 
@@ -116,3 +124,5 @@ model.fit(data2, onehot_array,
       verbose=1,
       callbacks=[tensorboard],
       validation_split=0.2)
+
+model.save('my_model.h5')
