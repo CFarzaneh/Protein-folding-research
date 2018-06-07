@@ -24,7 +24,7 @@ label = []
 print("Loading data")
 
 j = 0
-numOfFilesToInput = 100 #Number of files to load at once
+numOfFilesToInput = 1 #Number of files to load at once
 for i in tqdm(filelist, total=numOfFilesToInput):
     #print(i)
     data.append(np.load(dataPath+i))
