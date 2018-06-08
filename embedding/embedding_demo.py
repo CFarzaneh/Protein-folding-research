@@ -1,5 +1,17 @@
 import numpy as np
+import tensorflow as tf
+import random as rn
 import os
+
+os.environ['PYTHONHASHSEED'] = '0'
+np.random.seed(42)
+rn.seed(12345)
+session_conf = tf.ConfigProto(intra_op_parallelism_threads=1, inter_op_parallelism_threads=1)
+from keras import backend as K
+tf.set_random_seed(1234)
+sess = tf.Session(graph=tf.get_default_graph(), config=session_conf)
+K.set_session(sess)
+
 import pandas as pd
 from keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Input, Add, BatchNormalization, Dropout
 from keras.models import Model
@@ -10,12 +22,13 @@ from time import time
 from tqdm import tqdm
 from keras.models import load_model
 
-# Just checking on a single file
-
 # For all the 1000 file, you can use each file as a batch
 
-dataPath= "/media/femi/HDD2/tensor_data/"
-labelPath = "/media/femi/HDD2/tensor_label/"
+dataPath = "/media/cameron/HDD2/tensor_data/"
+labelPath = "/media/cameron/HDD2/tensor_label/"
+
+#dataPath= "/home/cameron/Desktop/tensor_data/"
+#labelPath = "/home/cameron/Desktop/tensor_label/"
 
 filelist = os.listdir(dataPath)
 data = []
@@ -23,8 +36,8 @@ label = []
 
 print("Loading data")
 
-j = 0
-numOfFilesToInput = 1 #Number of files to load at once
+j = 1
+numOfFilesToInput = 100 #Number of files to load at once
 for i in tqdm(filelist, total=numOfFilesToInput):
     #print(i)
     data.append(np.load(dataPath+i))
@@ -85,6 +98,7 @@ conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', act
 conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv1)
 pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
+conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(pool1)
 '''
 conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv2) #3x3x3
 #norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
@@ -95,7 +109,8 @@ pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 '''
 #another convolution layer, max pooling, another convolution layer 3x3x3
 
-flatten1 = Flatten()(pool1)
+flatten1 = Flatten()(conv3)
+#dense0 = Dense(400, activation='relu')(flatten1)
 dense1 = Dense(100, activation='relu')(flatten1)
 #drop2 = Dropout(0.25)(dense1)
 out = Dense(20, activation='softmax')(dense1)
@@ -123,9 +138,10 @@ tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
 #reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=1, min_lr = 0.00025)
 
 model.fit(data2, labels,
-      batch_size=100,
-      epochs=50,
+      batch_size=1000,
+      epochs=100,
       verbose=1,
+      shuffle=True,
       callbacks=[tensorboard],
       validation_split=0.2)
 
