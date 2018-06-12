@@ -21,7 +21,7 @@ import keras
 from time import time
 from tqdm import tqdm
 from keras.models import load_model
-from sklearn.model_selection import StratifiedKFold
+from sklearn.cross_validation import StratifiedKFold
 # For all the 1000 file, you can use each file as a batch
 
 def load_data():
@@ -47,7 +47,9 @@ def load_data():
         if j == numOfFilesToInput:
             break
         j += 1
-
+    
+    print(label)
+    quit()
     data = np.concatenate(data, axis=0)
     label = np.concatenate(label, axis=0)
 
@@ -142,34 +144,27 @@ def create_model():
     return model
 
 
-def train_and_evaluate_model(model, train_data, train_labels, test_data=5,test_labels=5):
+def train_and_evaluate_model(model, train_data, train_labels, test_data,test_labels):
 
     tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
+    
     model.fit(train_data, train_labels,
         batch_size=100,
         epochs=50,
         verbose=1,
         shuffle=True,
         callbacks=[tensorboard],
-        validation_split=0.2)
+        validation_data=(test_data,test_labels))
 
     #model.save('my_model.h5')
 
 if __name__ == "__main__":
-    '''
+   
     n_folds = 10
     data, labels = load_data()
-    skf = StratifiedKFold(n_splits=n_folds,  shuffle=True)
+    skf = StratifiedKFold(labels.tolist(), n_folds=n_folds,  shuffle=True)
 
-    orboard = TensorBoard(log_dir="logs/{}".format(time()))
-    or train_index, test_index in skf.split(data, labels):
-        print("TRAIN: ", train_index, "TEST: ", test_index)
-        print ("Running Fold", str(i+1), "/",str(n_folds))
-        model = None # Clearing the NN.
-        inputs = make_inputs()
-        model = create_model(inputs)
-        train_and_evaluate_model(model, data[train_index], labels[train_index], data[test_index], labels[test_index])
-    '''
-    data2, labels = load_data()
-    model = create_model()
-    train_and_evaluate_model(model,data2,labels)
+    for i, (train, test) in enumerate(skf):
+        print("Running fold", i+1, "/", n_folds)
+        model = None
+        model = create_model()
