@@ -21,65 +21,67 @@ import keras
 from time import time
 from tqdm import tqdm
 from keras.models import load_model
-
+from sklearn.model_selection import StratifiedKFold
 # For all the 1000 file, you can use each file as a batch
 
-dataPath = "/media/cameron/HDD2/tensor_data/"
-labelPath = "/media/cameron/HDD2/tensor_label/"
+def load_data():
+    #dataPath = "/media/cameron/HDD2/tensor_data/"
+    #labelPath = "/media/cameron/HDD2/tensor_label/"
 
-#dataPath= "/home/cameron/Desktop/tensor_data/"
-#labelPath = "/home/cameron/Desktop/tensor_label/"
+    dataPath= "/home/cameron/Desktop/tensor_data/"
+    labelPath = "/home/cameron/Desktop/tensor_label/"
 
-filelist = os.listdir(dataPath)
-data = []
-label = []
+    filelist = os.listdir(dataPath)
+    data = []
+    label = []
 
-print("Loading data")
+    print("Loading data")
 
-j = 1
-numOfFilesToInput = 100 #Number of files to load at once
-for i in tqdm(filelist, total=numOfFilesToInput):
-    #print(i)
-    data.append(np.load(dataPath+i))
-    fileName = i.split('_')[0]
-    label.append(np.load(labelPath+fileName+"_label.npy"))
-    if j == numOfFilesToInput:
-        break
-    j += 1
+    j = 1
+    numOfFilesToInput = 100 #Number of files to load at once
+    for i in tqdm(filelist, total=numOfFilesToInput):
+        #print(i)
+        data.append(np.load(dataPath+i))
+        fileName = i.split('_')[0]
+        label.append(np.load(labelPath+fileName+"_label.npy"))
+        if j == numOfFilesToInput:
+            break
+        j += 1
 
-data = np.concatenate(data, axis=0)
-label = np.concatenate(label, axis=0)
+    data = np.concatenate(data, axis=0)
+    label = np.concatenate(label, axis=0)
 
-# Change label to one-hot encoding
-# For all the file, you need to club all the labels files together and then change into one-hot encoding for sync
+    # Change label to one-hot encoding
+    # For all the file, you need to club all the labels files together and then change into one-hot encoding for sync
 
-classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
-from sklearn.preprocessing import OneHotEncoder
-protein_label_encoder = pd.factorize(classes)
-encoder = OneHotEncoder()
-protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
-onehot_array = protein_labels_1hot.toarray()
+    classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+    from sklearn.preprocessing import OneHotEncoder
+    protein_label_encoder = pd.factorize(classes)
+    encoder = OneHotEncoder()
+    protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
+    onehot_array = protein_labels_1hot.toarray()
 
-d1 = dict(zip(classes,onehot_array.tolist()))
-theFinalLabels = []
-for aminoacid in label:
-    encoding = d1[aminoacid]
-    theFinalLabels.append(encoding)
+    d1 = dict(zip(classes,onehot_array.tolist()))
+    theFinalLabels = []
+    for aminoacid in label:
+        encoding = d1[aminoacid]
+        theFinalLabels.append(encoding)
 
-labels = np.array(theFinalLabels)
-labels = labels.reshape((-1,20))
+    labels = np.array(theFinalLabels)
+    labels = labels.reshape((-1,20))
 
-data1 = data.reshape((-1, 21, 19, 19, 19, 1))
+    data1 = data.reshape((-1, 21, 19, 19, 19, 1))
 
-# For parallel 21 computations, Create 21 list to insert the model
-data2 = [[] for _ in range(21)]
-for sample in data1:
-    for ind,val in enumerate(sample):
-        data2[ind].append(val)
-data2 = [np.array(i) for i in data2]
+    # For parallel 21 computations, Create 21 list to insert the model
+    data2 = [[] for _ in range(21)]
+    for sample in data1:
+        for ind,val in enumerate(sample):
+            data2[ind].append(val)
+    data2 = [np.array(i) for i in data2]
 
-#Demo Architecture
-#plot_losses = livelossplot.PlotLossesKeras()
+    #Demo Architecture
+    #plot_losses = livelossplot.PlotLossesKeras()
+    return data2, labels
 
 def parallel_computation(inputs):
     convs = []
@@ -88,61 +90,86 @@ def parallel_computation(inputs):
         convs.append(conv)
     return keras.layers.Add()(convs)
 
-inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
-adds = parallel_computation(inputs)
+def create_model():
+    inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
+    adds = parallel_computation(inputs)
 
-conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
-#norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
-#pool0 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
+    conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
+    #norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
+    #pool0 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
 
-conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv1)
-pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
+    conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv1)
+    pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
-conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(pool1)
-'''
-conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv2) #3x3x3
-#norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
-pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
+    conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(pool1)
 
-conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
-pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
-'''
-#another convolution layer, max pooling, another convolution layer 3x3x3
+    '''
+    conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv2) #3x3x3
+    #norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
+    pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 
-flatten1 = Flatten()(conv3)
-#dense0 = Dense(400, activation='relu')(flatten1)
-dense1 = Dense(100, activation='relu')(flatten1)
-#drop2 = Dropout(0.25)(dense1)
-out = Dense(20, activation='softmax')(dense1)
-model = Model(input= inputs,output = out)
+    conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
+    pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
+    '''
 
-model.summary()
+    #another convolution layer, max pooling, another convolution layer 3x3x3
+    flatten1 = Flatten()(conv3)
+    #dense0 = Dense(400, activation='relu')(flatten1)
+    dense1 = Dense(100, activation='relu')(flatten1)
+    #drop2 = Dropout(0.25)(dense1)
+    out = Dense(20, activation='softmax')(dense1)
+    model = Model(input= inputs,output = out)
 
-import os.path
-#if os.path.isfile('my_model.h5') == True:
-    #model = load_model('my_model.h5')
-    #print("Model loaded")
+    model.summary()
 
-# Run it
-#sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum = 0.9)
-model.compile(loss=keras.losses.categorical_crossentropy,
-          optimizer=keras.optimizers.Adam(lr=0.01),
-          metrics=['accuracy'])
+    import os.path
+    #if os.path.isfile('my_model.h5') == True:
+        #model = load_model('my_model.h5')
+        #print("Model loaded")
+
+    # Run it
+    #sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum = 0.9)
+    model.compile(loss=keras.losses.categorical_crossentropy,
+              optimizer=keras.optimizers.Adam(lr=0.001),
+              metrics=['accuracy'])
 
 
-tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
+    #Attempted to reduce learning rate to prevent it 'val_loss' from going up.
+    #reduce_lr can be used as a callback during fitting
 
-#Attempted to reduce learning rate to prevent it 'val_loss' from going up.
-#reduce_lr can be used as a callback during fitting
+    #reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=1, min_lr = 0.00025)
 
-#reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=1, min_lr = 0.00025)
+    return model
 
-model.fit(data2, labels,
-      batch_size=1000,
-      epochs=100,
-      verbose=1,
-      shuffle=True,
-      callbacks=[tensorboard],
-      validation_split=0.2)
 
-model.save('my_model.h5')
+def train_and_evaluate_model(model, train_data, train_labels, test_data=5,test_labels=5):
+
+    tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
+    model.fit(train_data, train_labels,
+        batch_size=100,
+        epochs=50,
+        verbose=1,
+        shuffle=True,
+        callbacks=[tensorboard],
+        validation_split=0.2)
+
+    #model.save('my_model.h5')
+
+if __name__ == "__main__":
+    '''
+    n_folds = 10
+    data, labels = load_data()
+    skf = StratifiedKFold(n_splits=n_folds,  shuffle=True)
+
+    orboard = TensorBoard(log_dir="logs/{}".format(time()))
+    or train_index, test_index in skf.split(data, labels):
+        print("TRAIN: ", train_index, "TEST: ", test_index)
+        print ("Running Fold", str(i+1), "/",str(n_folds))
+        model = None # Clearing the NN.
+        inputs = make_inputs()
+        model = create_model(inputs)
+        train_and_evaluate_model(model, data[train_index], labels[train_index], data[test_index], labels[test_index])
+    '''
+    data2, labels = load_data()
+    model = create_model()
+    train_and_evaluate_model(model,data2,labels)
