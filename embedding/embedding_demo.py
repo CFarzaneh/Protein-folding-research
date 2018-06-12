@@ -21,7 +21,7 @@ import keras
 from time import time
 from tqdm import tqdm
 from keras.models import load_model
-from sklearn.cross_validation import StratifiedKFold
+from sklearn.model_selection import StratifiedKFold
 # For all the 1000 file, you can use each file as a batch
 
 def load_data():
@@ -48,10 +48,10 @@ def load_data():
             break
         j += 1
     
-    print(label)
-    quit()
     data = np.concatenate(data, axis=0)
     label = np.concatenate(label, axis=0)
+
+    returnLabel = label
 
     # Change label to one-hot encoding
     # For all the file, you need to club all the labels files together and then change into one-hot encoding for sync
@@ -83,7 +83,7 @@ def load_data():
 
     #Demo Architecture
     #plot_losses = livelossplot.PlotLossesKeras()
-    return data2, labels
+    return data2, labels, returnLabel
 
 def parallel_computation(inputs):
     convs = []
@@ -122,7 +122,7 @@ def create_model():
     out = Dense(20, activation='softmax')(dense1)
     model = Model(input= inputs,output = out)
 
-    model.summary()
+    #model.summary()
 
     import os.path
     #if os.path.isfile('my_model.h5') == True:
@@ -150,8 +150,8 @@ def train_and_evaluate_model(model, train_data, train_labels, test_data,test_lab
     
     model.fit(train_data, train_labels,
         batch_size=100,
-        epochs=50,
-        verbose=1,
+        epochs=10,
+        verbose=2,
         shuffle=True,
         callbacks=[tensorboard],
         validation_data=(test_data,test_labels))
@@ -160,11 +160,21 @@ def train_and_evaluate_model(model, train_data, train_labels, test_data,test_lab
 
 if __name__ == "__main__":
    
-    n_folds = 10
-    data, labels = load_data()
-    skf = StratifiedKFold(labels.tolist(), n_folds=n_folds,  shuffle=True)
+    data, labels, proteins = load_data()
+    n_samples = proteins.shape[0]
+    print(n_samples)
+    skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=1382)
 
-    for i, (train, test) in enumerate(skf):
-        print("Running fold", i+1, "/", n_folds)
+    for train_index, test_index in skf.split(X=np.zeros(n_samples),y=proteins):
+        validationLabels = np.take(labels,test_index,axis=0)
+        trainLabels = np.take(labels,train_index,axis=0)
+        newTrainData = []
+        for nparray in data:
+            newTrainData.append(np.take(nparray,train_index,axis=0))
+        newTestData = []
+        for nparray in data:
+            newTestData.append(np.take(nparray,test_index,axis=0))
         model = None
         model = create_model()
+        train_and_evaluate_model(model,newTrainData,trainLabels,newTestData,validationLabels)
+        
