@@ -1,0 +1,1600 @@
+  0%|          | 0/1000 [00:00<?, ?it/s]2018-06-12 22:32:24.489145: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 22:32:24.611135: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 22:32:24.611542: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 22:32:24.611556: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 22:32:24.799153: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 22:32:24.799189: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 22:32:24.799195: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 22:32:24.799373: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:19,  5.01it/s]  0%|          | 0/1000 [00:00<?, ?it/s]2018-06-12 22:39:20.932817: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 22:39:21.060814: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 22:39:21.061227: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 22:39:21.061240: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 22:39:21.247435: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 22:39:21.247471: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 22:39:21.247477: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 22:39:21.247661: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:19,  4.98it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  0%|          | 1/1000 [14:16<237:47:02, 856.88s/it]2018-06-12 22:53:37.479780: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 22:53:37.600155: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 22:53:37.600565: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 22:53:37.600578: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 22:53:37.788738: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 22:53:37.788783: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 22:53:37.788788: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 22:53:37.788976: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:17,  5.63it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  0%|          | 2/1000 [26:04<216:50:11, 782.18s/it]2018-06-12 23:05:24.842785: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 23:05:24.962693: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 23:05:24.963099: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 23:05:24.963112: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 23:05:25.152292: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 23:05:25.152334: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 23:05:25.152340: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 23:05:25.152524: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:09,  9.95it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  0%|          | 3/1000 [34:02<188:32:05, 680.77s/it]2018-06-12 23:13:22.822836: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 23:13:22.941707: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 23:13:22.942120: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 23:13:22.942134: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 23:13:23.128172: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 23:13:23.128211: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 23:13:23.128217: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 23:13:23.128403: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.61it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  0%|          | 4/1000 [42:41<177:09:59, 640.36s/it]2018-06-12 23:22:02.021958: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 23:22:02.152851: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 23:22:02.153271: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 23:22:02.153284: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 23:22:02.341193: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 23:22:02.341235: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 23:22:02.341240: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 23:22:02.341424: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:17,  5.52it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  0%|          | 5/1000 [54:51<181:55:28, 658.22s/it]2018-06-12 23:34:11.981921: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 23:34:12.101062: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 23:34:12.101470: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 23:34:12.101484: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 23:34:12.284355: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 23:34:12.284397: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 23:34:12.284403: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 23:34:12.284590: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:36,  2.68it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 8 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|          | 6/1000 [1:19:59<220:53:01, 799.98s/it]2018-06-12 23:59:20.457050: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-12 23:59:20.581244: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-12 23:59:20.581654: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-12 23:59:20.581667: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-12 23:59:20.769770: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-12 23:59:20.769811: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-12 23:59:20.769817: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-12 23:59:20.770007: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:13,  7.29it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|          | 7/1000 [1:29:15<211:00:54, 765.01s/it]2018-06-13 00:08:35.565740: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:08:35.685154: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:08:35.685563: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:08:35.685575: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:08:35.872782: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:08:35.872818: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:08:35.872825: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:08:35.873015: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:12,  7.89it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|          | 8/1000 [1:38:17<203:07:16, 737.13s/it]2018-06-13 00:17:37.513124: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:17:37.633827: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:17:37.634238: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:17:37.634251: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:17:37.825877: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:17:37.825921: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:17:37.825928: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:17:37.826116: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:07, 13.05it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 3 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|          | 9/1000 [1:43:52<190:37:26, 692.48s/it]2018-06-13 00:23:12.695073: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:23:12.814660: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:23:12.815069: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:23:12.815083: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:23:13.005273: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:23:13.005312: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:23:13.005318: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:23:13.005499: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:03, 25.86it/s]
+Traceback (most recent call last):
+  File "embedding_demo.py", line 169, in <module>
+    for train_index, test_index in skf.split(X=np.zeros(n_samples),y=proteins):
+  File "/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py", line 332, in split
+    for train, test in super(_BaseKFold, self).split(X, y, groups):
+  File "/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py", line 95, in split
+    for test_index in self._iter_test_masks(X, y, groups):
+  File "/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py", line 634, in _iter_test_masks
+    test_folds = self._make_test_folds(X, y)
+  File "/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py", line 599, in _make_test_folds
+    % (self.n_splits))
+ValueError: n_splits=10 cannot be greater than the number of members in each class.
+  1%|          | 10/1000 [1:43:54<171:26:28, 623.42s/it]2018-06-13 00:23:14.641846: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:23:14.761494: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:23:14.761903: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:23:14.761915: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:23:14.952424: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:23:14.952461: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:23:14.952466: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:23:14.952648: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:05, 18.93it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|          | 11/1000 [1:48:01<161:52:23, 589.22s/it]2018-06-13 00:27:22.617260: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:27:22.738963: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:27:22.739367: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:27:22.739380: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:27:22.924185: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:27:22.924224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:27:22.924230: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:27:22.924415: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:08, 11.35it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|          | 12/1000 [1:54:35<157:14:21, 572.94s/it]2018-06-13 00:33:57.980764: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:33:58.109575: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:33:58.109992: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:33:58.110012: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:33:58.294580: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:33:58.294620: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:33:58.294625: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:33:58.294810: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:17,  5.76it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|▏         | 13/1000 [2:06:24<159:57:40, 583.45s/it]2018-06-13 00:45:46.847277: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:45:46.973853: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:45:46.974262: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:45:46.974275: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:45:47.156916: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:45:47.156954: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:45:47.156960: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:45:47.157144: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.36it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  1%|▏         | 14/1000 [2:15:22<158:53:56, 580.16s/it]2018-06-13 00:54:45.792923: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 00:54:45.915545: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 00:54:45.915957: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 00:54:45.915970: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 00:54:46.098961: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 00:54:46.099002: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 00:54:46.099008: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 00:54:46.099189: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:22,  4.42it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 15/1000 [2:30:22<164:35:09, 601.53s/it]2018-06-13 01:09:43.543472: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 01:09:43.666330: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 01:09:43.666778: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 01:09:43.666791: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 01:09:43.849445: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 01:09:43.849485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 01:09:43.849491: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 01:09:43.849676: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:01, 49.60it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 16/1000 [2:32:37<156:26:15, 572.33s/it]2018-06-13 01:12:01.713091: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 01:12:01.840194: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 01:12:01.840612: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 01:12:01.840626: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 01:12:02.022921: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 01:12:02.022962: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 01:12:02.022968: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 01:12:02.023150: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:28,  3.48it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 17/1000 [2:52:05<165:51:20, 607.41s/it]2018-06-13 01:31:26.890628: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 01:31:27.012371: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 01:31:27.012812: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 01:31:27.012826: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 01:31:27.195455: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 01:31:27.195497: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 01:31:27.195503: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 01:31:27.195685: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:05, 19.52it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 18/1000 [2:56:24<160:23:39, 588.00s/it]2018-06-13 01:35:45.827600: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 01:35:45.948411: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 01:35:45.948823: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 01:35:45.948835: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 01:35:46.130231: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 01:35:46.130270: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 01:35:46.130276: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 01:35:46.130462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:10,  9.78it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 19/1000 [3:04:31<158:47:11, 582.70s/it]2018-06-13 01:43:52.974420: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 01:43:53.103662: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 01:43:53.104073: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 01:43:53.104086: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 01:43:53.287174: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 01:43:53.287212: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 01:43:53.287218: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 01:43:53.287405: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:09, 10.49it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 20/1000 [3:12:01<156:49:15, 576.08s/it]2018-06-13 01:51:23.435798: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 01:51:23.556728: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 01:51:23.557150: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 01:51:23.557164: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 01:51:23.738295: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 01:51:23.738344: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 01:51:23.738350: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 01:51:23.738531: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:10,  9.35it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 3 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 21/1000 [3:20:31<155:48:08, 572.92s/it]2018-06-13 01:59:54.622409: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 01:59:54.749747: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 01:59:54.750160: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 01:59:54.750173: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 01:59:54.932412: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 01:59:54.932454: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 01:59:54.932460: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 01:59:54.932640: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:20,  4.83it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 22/1000 [3:35:15<159:29:01, 587.06s/it]2018-06-13 02:14:41.361348: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 02:14:41.499469: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 02:14:41.499884: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 02:14:41.499897: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 02:14:41.685372: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 02:14:41.685415: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 02:14:41.685420: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 02:14:41.685797: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:39,  2.51it/s]
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 23/1000 [4:02:49<171:54:44, 633.45s/it]2018-06-13 02:42:11.030155: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 02:42:11.157760: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 02:42:11.158177: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 02:42:11.158190: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 02:42:11.342262: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 02:42:11.342304: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 02:42:11.342310: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 02:42:11.342494: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:16,  6.14it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▏         | 24/1000 [4:14:30<172:30:07, 636.28s/it]2018-06-13 02:53:51.118299: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 02:53:51.238267: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 02:53:51.238678: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 02:53:51.243951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 02:53:51.442089: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 02:53:51.442128: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 02:53:51.442134: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 02:53:51.442318: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:08, 11.43it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  2%|▎         | 25/1000 [4:21:03<169:41:34, 626.56s/it]2018-06-13 03:00:24.490938: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 03:00:24.609800: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 03:00:24.610211: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 03:00:24.610224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 03:00:24.792455: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 03:00:24.792506: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 03:00:24.792512: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 03:00:24.792696: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:16,  6.00it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 3 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 26/1000 [4:33:07<170:31:49, 630.30s/it]2018-06-13 03:12:28.403763: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 03:12:28.523095: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 03:12:28.523509: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 03:12:28.523522: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 03:12:28.706416: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 03:12:28.706456: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 03:12:28.706462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 03:12:28.706647: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:25,  3.95it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 6 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 27/1000 [4:50:34<174:31:26, 645.72s/it]2018-06-13 03:29:54.888501: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 03:29:55.017241: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 03:29:55.017682: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 03:29:55.017695: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 03:29:55.200938: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 03:29:55.200977: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 03:29:55.200982: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 03:29:55.201165: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:08, 11.80it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 28/1000 [4:56:59<171:50:02, 636.42s/it]2018-06-13 03:36:20.195622: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 03:36:20.313484: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 03:36:20.313890: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 03:36:20.313903: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 03:36:20.495728: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 03:36:20.495767: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 03:36:20.495772: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 03:36:20.495959: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:04, 19.93it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 29/1000 [5:01:07<168:02:27, 623.02s/it]2018-06-13 03:40:28.074804: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 03:40:28.195670: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 03:40:28.196080: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 03:40:28.196093: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 03:40:28.376343: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 03:40:28.376384: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 03:40:28.376389: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 03:40:28.376574: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:21,  4.54it/s]
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 30/1000 [5:16:12<170:23:58, 632.41s/it]2018-06-13 03:55:32.784637: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 03:55:32.903783: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 03:55:32.904190: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 03:55:32.904204: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 03:55:33.087005: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 03:55:33.087058: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 03:55:33.087063: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 03:55:33.087247: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.25it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 31/1000 [5:25:04<169:21:11, 629.18s/it]2018-06-13 04:04:24.917920: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 04:04:25.035952: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 04:04:25.036359: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 04:04:25.036373: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 04:04:25.217895: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 04:04:25.217937: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 04:04:25.217943: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 04:04:25.218126: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.85it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 32/1000 [5:33:36<168:11:26, 625.50s/it]2018-06-13 04:12:56.607214: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 04:12:56.726960: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 04:12:56.727387: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 04:12:56.727400: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 04:12:56.909774: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 04:12:56.909816: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 04:12:56.909821: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 04:12:56.910008: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:16,  6.05it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 33/1000 [5:45:12<168:35:31, 627.64s/it]2018-06-13 04:24:32.754549: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 04:24:32.874039: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 04:24:32.874449: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 04:24:32.874462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 04:24:33.058408: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 04:24:33.058450: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 04:24:33.058456: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 04:24:33.058643: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:13,  7.41it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  3%|▎         | 34/1000 [5:54:34<167:53:53, 625.71s/it]2018-06-13 04:33:54.629235: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 04:33:54.748962: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 04:33:54.749374: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 04:33:54.749387: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 04:33:54.931692: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 04:33:54.931730: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 04:33:54.931736: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 04:33:54.931924: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:17,  5.65it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▎         | 35/1000 [6:06:51<168:34:44, 628.90s/it]2018-06-13 04:46:11.815310: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 04:46:11.934532: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 04:46:11.934942: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 04:46:11.934963: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 04:46:12.118179: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 04:46:12.118222: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 04:46:12.118227: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 04:46:12.118415: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.53it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▎         | 36/1000 [6:15:33<167:36:43, 625.94s/it]2018-06-13 04:54:54.089624: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 04:54:54.208005: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 04:54:54.208470: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 04:54:54.208484: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 04:54:54.391302: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 04:54:54.391345: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 04:54:54.391351: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 04:54:54.391540: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:03, 28.96it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▎         | 37/1000 [6:18:35<164:13:36, 613.93s/it]2018-06-13 04:57:56.145772: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 04:57:56.263499: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 04:57:56.263910: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 04:57:56.263923: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 04:57:56.444701: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 04:57:56.444746: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 04:57:56.444756: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 04:57:56.444939: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:24,  4.08it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 38/1000 [6:35:42<166:57:42, 624.80s/it]2018-06-13 05:15:03.018978: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 05:15:03.137616: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 05:15:03.138028: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 05:15:03.138042: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 05:15:03.319029: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 05:15:03.319069: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 05:15:03.319075: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 05:15:03.319261: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:10,  9.85it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 39/1000 [6:43:39<165:46:35, 621.01s/it]2018-06-13 05:23:00.089357: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 05:23:00.207816: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 05:23:00.208222: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 05:23:00.208236: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 05:23:00.390525: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 05:23:00.390566: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 05:23:00.390573: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 05:23:00.390755: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:13,  7.54it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 40/1000 [6:52:52<165:09:07, 619.32s/it]2018-06-13 05:32:13.275959: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 05:32:13.394144: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 05:32:13.394563: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 05:32:13.394576: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 05:32:13.576757: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 05:32:13.576798: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 05:32:13.576804: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 05:32:13.576991: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:12,  8.01it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 3 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 41/1000 [7:01:56<164:29:19, 617.48s/it]2018-06-13 05:41:16.989453: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 05:41:17.107701: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 05:41:17.108121: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 05:41:17.108134: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 05:41:17.289910: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 05:41:17.289948: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 05:41:17.289953: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 05:41:17.290135: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:12,  7.71it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 42/1000 [7:11:12<163:55:46, 616.02s/it]2018-06-13 05:50:34.450549: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 05:50:34.570677: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 05:50:34.571278: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 05:50:34.571292: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 05:50:34.751283: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 05:50:34.751324: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 05:50:34.751330: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 05:50:34.751512: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<01:26,  1.15it/s]
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 43/1000 [8:09:38<181:37:27, 683.23s/it]2018-06-13 06:48:59.485498: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 06:48:59.603378: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 06:48:59.603785: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 06:48:59.603798: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 06:48:59.784362: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 06:48:59.784403: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 06:48:59.784409: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 06:48:59.784596: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:31,  3.12it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 5 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 44/1000 [8:30:33<184:52:57, 696.21s/it]2018-06-13 07:09:53.684355: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 07:09:53.814053: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 07:09:53.814478: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 07:09:53.814491: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 07:09:53.997756: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 07:09:53.997797: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 07:09:53.997803: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 07:09:53.997986: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:07, 12.71it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  4%|▍         | 45/1000 [8:36:21<182:38:21, 688.48s/it]2018-06-13 07:15:42.262457: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 07:15:42.394709: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 07:15:42.395135: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 07:15:42.395149: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 07:15:42.579443: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 07:15:42.579483: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 07:15:42.579489: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 07:15:42.579676: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:17,  5.67it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▍         | 46/1000 [8:48:26<182:39:23, 689.27s/it]2018-06-13 07:27:46.839118: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 07:27:46.960629: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 07:27:46.961067: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 07:27:46.961082: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 07:27:47.143951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 07:27:47.143991: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 07:27:47.143996: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 07:27:47.144179: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:09, 10.20it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▍         | 47/1000 [8:55:33<180:59:26, 683.70s/it]2018-06-13 07:34:54.349530: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 07:34:54.468157: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 07:34:54.468567: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 07:34:54.468580: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 07:34:54.650685: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 07:34:54.650726: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 07:34:54.650731: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 07:34:54.650917: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:12,  8.23it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▍         | 48/1000 [9:04:24<179:57:30, 680.51s/it]2018-06-13 07:43:45.153856: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 07:43:45.272421: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 07:43:45.272850: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 07:43:45.272863: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 07:43:45.454615: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 07:43:45.454657: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 07:43:45.454665: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 07:43:45.454859: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.93it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▍         | 49/1000 [9:12:46<178:48:29, 676.88s/it]2018-06-13 07:52:07.287312: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 07:52:07.406373: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 07:52:07.406781: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 07:52:07.406794: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 07:52:07.590393: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 07:52:07.590434: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 07:52:07.590440: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 07:52:07.590620: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:04, 22.08it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▌         | 50/1000 [9:16:25<176:12:02, 667.71s/it]2018-06-13 07:55:45.977752: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 07:55:46.100300: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 07:55:46.100709: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 07:55:46.100723: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 07:55:46.283249: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 07:55:46.283291: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 07:55:46.283297: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 07:55:46.283483: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:18,  5.28it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▌         | 51/1000 [9:29:23<176:35:01, 669.86s/it]2018-06-13 08:08:44.113298: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 08:08:44.234697: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 08:08:44.235117: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 08:08:44.235130: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 08:08:44.416365: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 08:08:44.416406: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 08:08:44.416411: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 08:08:44.416591: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:52,  1.89it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 8 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▌         | 52/1000 [10:04:21<183:37:56, 697.34s/it]2018-06-13 08:43:42.050768: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 08:43:42.176029: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 08:43:42.176448: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 08:43:42.176461: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 08:43:42.358582: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 08:43:42.358622: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 08:43:42.358628: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 08:43:42.358809: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.25it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▌         | 53/1000 [10:13:09<182:35:45, 694.13s/it]2018-06-13 08:52:29.643647: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 08:52:29.762642: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 08:52:29.763053: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 08:52:29.763067: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 08:52:29.945285: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 08:52:29.945326: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 08:52:29.945332: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 08:52:29.945517: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:14,  6.69it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 5 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  5%|▌         | 54/1000 [10:23:39<182:05:28, 692.95s/it]2018-06-13 09:02:59.627209: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 09:02:59.746284: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 09:02:59.746699: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 09:02:59.746713: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 09:02:59.929526: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 09:02:59.929566: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 09:02:59.929572: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 09:02:59.929760: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.36it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 55/1000 [10:32:24<181:05:55, 689.90s/it]2018-06-13 09:11:44.907050: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 09:11:45.026182: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 09:11:45.026593: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 09:11:45.026606: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 09:11:45.209865: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 09:11:45.209903: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 09:11:45.209909: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 09:11:45.210091: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:06, 14.81it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 56/1000 [10:37:35<179:07:52, 683.13s/it]2018-06-13 09:16:55.708082: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 09:16:55.827509: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 09:16:55.827918: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 09:16:55.827932: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 09:16:56.010946: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 09:16:56.010988: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 09:16:56.010995: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 09:16:56.011181: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:17,  5.77it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 6 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 57/1000 [10:49:17<179:01:53, 683.47s/it]2018-06-13 09:28:38.352844: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 09:28:38.475096: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 09:28:38.475508: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 09:28:38.475521: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 09:28:38.658281: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 09:28:38.658322: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 09:28:38.658328: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 09:28:38.658511: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:12,  7.66it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 58/1000 [10:58:26<178:14:03, 681.15s/it]2018-06-13 09:37:47.149258: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 09:37:47.275420: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 09:37:47.275830: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 09:37:47.275850: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 09:37:47.458905: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 09:37:47.458945: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 09:37:47.458951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 09:37:47.459137: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:10,  9.24it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 59/1000 [11:06:27<177:09:26, 677.75s/it]2018-06-13 09:45:47.915621: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 09:45:48.034936: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 09:45:48.035382: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 09:45:48.035396: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 09:45:48.218653: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 09:45:48.218694: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 09:45:48.218699: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 09:45:48.218882: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:12,  8.05it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 60/1000 [11:15:20<176:20:19, 675.34s/it]2018-06-13 09:54:40.878719: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 09:54:40.998948: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 09:54:40.999360: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 09:54:40.999372: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 09:54:41.183844: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 09:54:41.183887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 09:54:41.183893: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 09:54:41.184081: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:12,  8.16it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 61/1000 [11:24:04<175:30:17, 672.86s/it]2018-06-13 10:03:24.979926: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 10:03:25.101091: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 10:03:25.101687: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 10:03:25.101703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 10:03:25.286947: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 10:03:25.286987: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 10:03:25.286992: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 10:03:25.287175: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:07, 13.14it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 3 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▌         | 62/1000 [11:29:38<173:53:30, 667.39s/it]2018-06-13 10:08:58.432950: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 10:08:58.552204: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 10:08:58.552614: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 10:08:58.552627: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 10:08:58.737642: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 10:08:58.737682: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 10:08:58.737688: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 10:08:58.737874: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:04, 22.61it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▋         | 63/1000 [11:33:13<171:50:22, 660.22s/it]2018-06-13 10:12:34.121821: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 10:12:34.241687: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 10:12:34.242138: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 10:12:34.242151: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 10:12:34.426250: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 10:12:34.426289: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 10:12:34.426295: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 10:12:34.426478: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:15,  6.39it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 3 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▋         | 64/1000 [11:44:03<171:36:49, 660.05s/it]2018-06-13 10:23:23.890036: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 10:23:24.009961: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 10:23:24.010373: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 10:23:24.010386: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 10:23:24.195613: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 10:23:24.195655: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 10:23:24.195660: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 10:23:24.195841: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:17,  5.62it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  6%|▋         | 65/1000 [11:55:46<171:36:12, 660.72s/it]2018-06-13 10:35:07.549328: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 10:35:07.670925: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 10:35:07.671335: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 10:35:07.671348: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 10:35:07.852525: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 10:35:07.852568: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 10:35:07.852574: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 10:35:07.852761: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:32,  3.03it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 6 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 66/1000 [12:18:45<174:14:26, 671.59s/it]2018-06-13 10:58:05.551322: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 10:58:05.673017: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 10:58:05.673471: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 10:58:05.673484: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 10:58:05.854987: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 10:58:05.855035: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 10:58:05.855041: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 10:58:05.855224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:15,  6.26it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 67/1000 [12:29:50<174:01:43, 671.49s/it]2018-06-13 11:09:10.893963: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 11:09:11.014912: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 11:09:11.015320: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 11:09:11.015334: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 11:09:11.196233: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 11:09:11.196272: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 11:09:11.196278: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 11:09:11.196468: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:36,  2.71it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 68/1000 [12:55:13<177:05:04, 684.02s/it]2018-06-13 11:34:33.613030: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 11:34:33.743576: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 11:34:33.743987: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 11:34:33.743999: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 11:34:33.927015: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 11:34:33.927053: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 11:34:33.927058: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 11:34:33.927238: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:09, 10.87it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 69/1000 [13:01:46<175:48:19, 679.81s/it]2018-06-13 11:41:08.134226: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 11:41:08.254636: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 11:41:08.255050: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.37GiB
+2018-06-13 11:41:08.255063: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 11:41:08.436124: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 11:41:08.436164: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 11:41:08.436169: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 11:41:08.436354: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 13923 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<01:21,  1.21it/s]
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 70/1000 [13:57:09<185:22:11, 717.56s/it]2018-06-13 12:36:30.157740: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 12:36:30.288145: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 12:36:30.288558: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.55GiB
+2018-06-13 12:36:30.288573: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 12:36:30.487230: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 12:36:30.487272: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 12:36:30.487278: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 12:36:30.487479: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14105 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:43,  2.27it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 71/1000 [14:26:30<188:57:43, 732.25s/it]2018-06-13 13:05:50.953781: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 13:05:51.065683: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 13:05:51.066099: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.78GiB
+2018-06-13 13:05:51.066113: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 13:05:51.248204: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 13:05:51.248256: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 13:05:51.248262: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 13:05:51.248444: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14324 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:41,  2.38it/s]
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 72/1000 [14:54:10<192:04:52, 745.14s/it]2018-06-13 13:33:30.595141: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 13:33:30.707575: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 13:33:30.707988: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.60GiB
+2018-06-13 13:33:30.708003: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 13:33:30.892630: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 13:33:30.892672: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 13:33:30.892678: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 13:33:30.892863: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14147 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:04, 19.90it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 2 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 73/1000 [14:58:03<190:04:03, 738.13s/it]2018-06-13 13:37:23.862834: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 13:37:23.998728: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 13:37:23.999149: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.60GiB
+2018-06-13 13:37:23.999162: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 13:37:24.180896: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 13:37:24.180940: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 13:37:24.180946: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 13:37:24.181127: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14147 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:25,  3.86it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  7%|▋         | 74/1000 [15:14:52<190:48:18, 741.79s/it]2018-06-13 13:54:12.908061: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 13:54:13.031902: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 13:54:13.032317: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.52GiB
+2018-06-13 13:54:13.032331: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 13:54:13.217952: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 13:54:13.217995: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 13:54:13.218001: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 13:54:13.218185: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14073 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:06, 14.68it/s]
+/home/cameron/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=10.
+  % (min_groups, self.n_splits)), Warning)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+embedding_demo.py:123: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=[<tf.Tenso..., outputs=Tensor("de...)`
+  model = Model(input= inputs,output = out)
+  8%|▊         | 75/1000 [15:20:00<189:06:41, 736.00s/it]2018-06-13 13:59:20.617491: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2018-06-13 13:59:20.751328: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-06-13 13:59:20.751786: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: Quadro GP100 major: 6 minor: 0 memoryClockRate(GHz): 1.4425
+pciBusID: 0000:65:00.0
+totalMemory: 15.90GiB freeMemory: 14.59GiB
+2018-06-13 13:59:20.751798: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-06-13 13:59:20.936998: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-06-13 13:59:20.937037: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-06-13 13:59:20.937045: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-06-13 13:59:20.937235: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14138 MB memory) -> physical GPU (device: 0, name: Quadro GP100, pci bus id: 0000:65:00.0, compute capability: 6.0)
+/home/cameron/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+  0%|          | 0/100 [00:00<?, ?it/s]  1%|          | 1/100 [00:00<00:11,  8.73it/s]

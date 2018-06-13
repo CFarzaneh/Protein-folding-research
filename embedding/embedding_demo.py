@@ -150,7 +150,7 @@ def train_and_evaluate_model(model, train_data, train_labels, test_data,test_lab
     
     model.fit(train_data, train_labels,
         batch_size=100,
-        epochs=10,
+        epochs=100,
         verbose=2,
         shuffle=True,
         callbacks=[tensorboard],
@@ -162,10 +162,12 @@ if __name__ == "__main__":
    
     data, labels, proteins = load_data()
     n_samples = proteins.shape[0]
-    print(n_samples)
+    print('Number of samples:', n_samples)
     skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=1382)
 
+    i=1
     for train_index, test_index in skf.split(X=np.zeros(n_samples),y=proteins):
+        print('\nFold',i,'/10')
         validationLabels = np.take(labels,test_index,axis=0)
         trainLabels = np.take(labels,train_index,axis=0)
         newTrainData = []
@@ -177,4 +179,4 @@ if __name__ == "__main__":
         model = None
         model = create_model()
         train_and_evaluate_model(model,newTrainData,trainLabels,newTestData,validationLabels)
-        
+        i+=1
