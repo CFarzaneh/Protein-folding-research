@@ -3,7 +3,6 @@ from tqdm import tqdm
 from shutil import copyfile
 import subprocess
 import sys
-sys.stdout = open('file', 'w')
 
 dataPath = "/media/cameron/HDD2/tensor_data/"
 labelPath = "/media/cameron/HDD2/tensor_label/"

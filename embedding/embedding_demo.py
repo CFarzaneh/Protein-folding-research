@@ -25,11 +25,11 @@ from sklearn.model_selection import StratifiedKFold
 # For all the 1000 file, you can use each file as a batch
 
 def load_data():
-    #dataPath = "/media/cameron/HDD2/tensor_data/"
-    #labelPath = "/media/cameron/HDD2/tensor_label/"
+    dataPath = "/media/cameron/HDD2/tensor_data/"
+    labelPath = "/media/cameron/HDD2/tensor_label/"
 
-    dataPath= "/home/cameron/Desktop/tensor_data/"
-    labelPath = "/home/cameron/Desktop/tensor_label/"
+    #dataPath= "/home/cameron/Desktop/tensor_data/"
+    #labelPath = "/home/cameron/Desktop/tensor_label/"
 
     filelist = os.listdir(dataPath)
     data = []
@@ -37,19 +37,47 @@ def load_data():
 
     print("Loading data")
 
-    j = 1
-    numOfFilesToInput = 100 #Number of files to load at once
-    for i in tqdm(filelist, total=numOfFilesToInput):
+    #Count the total number of samples in tensor_data folder
+    theSum = 0
+    for i in filelist:
+        x = np.load(dataPath+i,'r')
+        theSum += x.shape[0]
+    print(theSum)
+    theRatio = 20000/theSum
+
+    print(theRatio)
+
+    for j,i in enumerate(tqdm(filelist, total=1000)):
         #print(i)
-        data.append(np.load(dataPath+i))
+        samplesToKeep = []
+        labelsToKeep = []
+
+        loadedFile = np.load(dataPath+i,'r')
+        if loadedFile.shape[0] < 100:
+            continue
         fileName = i.split('_')[0]
-        label.append(np.load(labelPath+fileName+"_label.npy"))
-        if j == numOfFilesToInput:
-            break
-        j += 1
-    
+        loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
+
+        for i,x in enumerate(loadedFile):
+            rn.seed()
+            theRandomNumber = rn.uniform(0,1)
+            rn.seed(12345)
+            if theRandomNumber > theRatio:
+                continue
+            else:
+                samplesToKeep.append(x)
+                labelsToKeep.append(loadedLabels[i])
+
+        samplesToKeep = np.stack(samplesToKeep, axis=0)
+        labelsToKeep = np.stack(labelsToKeep, axis=0)
+        data.append(samplesToKeep)
+        label.append(labelsToKeep)
+
     data = np.concatenate(data, axis=0)
     label = np.concatenate(label, axis=0)
+    
+    print(data.shape)
+    print(label.shape)
 
     returnLabel = label
 
@@ -96,14 +124,16 @@ def create_model():
     inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
     adds = parallel_computation(inputs)
 
-    conv1 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
+    conv1 = Conv3D(7,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
     #norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
     #pool0 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
 
-    conv2 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv1)
+    conv2 = Conv3D(14,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv1)
     pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
-    conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(pool1)
+    conv3 = Conv3D(21,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(pool1)
+
+    pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
 
     '''
     conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv2) #3x3x3
@@ -115,16 +145,17 @@ def create_model():
     '''
 
     #another convolution layer, max pooling, another convolution layer 3x3x3
-    flatten1 = Flatten()(conv3)
+    flatten1 = Flatten()(pool3)
+    drop2 = Dropout(0.25)(flatten1)
     #dense0 = Dense(400, activation='relu')(flatten1)
-    dense1 = Dense(100, activation='relu')(flatten1)
+    dense1 = Dense(100, activation='relu')(drop2)
     #drop2 = Dropout(0.25)(dense1)
     out = Dense(20, activation='softmax')(dense1)
     model = Model(input= inputs,output = out)
 
-    #model.summary()
+    model.summary()
 
-    import os.path
+    #import os.path
     #if os.path.isfile('my_model.h5') == True:
         #model = load_model('my_model.h5')
         #print("Model loaded")
@@ -149,7 +180,7 @@ def train_and_evaluate_model(model, train_data, train_labels, test_data,test_lab
     tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
     
     model.fit(train_data, train_labels,
-        batch_size=100,
+        batch_size=50,
         epochs=100,
         verbose=2,
         shuffle=True,
@@ -167,7 +198,7 @@ if __name__ == "__main__":
 
     i=1
     for train_index, test_index in skf.split(X=np.zeros(n_samples),y=proteins):
-        print('\nFold',i,'/10')
+        #print('\nFold',i,'/10')
         validationLabels = np.take(labels,test_index,axis=0)
         trainLabels = np.take(labels,train_index,axis=0)
         newTrainData = []
@@ -180,3 +211,4 @@ if __name__ == "__main__":
         model = create_model()
         train_and_evaluate_model(model,newTrainData,trainLabels,newTestData,validationLabels)
         i+=1
+        break
