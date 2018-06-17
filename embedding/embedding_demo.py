@@ -22,6 +22,10 @@ from time import time
 from tqdm import tqdm
 from keras.models import load_model
 from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import confusion_matrix
+import itertools
+import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 # For all the 1000 file, you can use each file as a batch
 
 def load_data():
@@ -32,52 +36,54 @@ def load_data():
     #labelPath = "/home/cameron/Desktop/tensor_label/"
 
     filelist = os.listdir(dataPath)
+    labellist = os.listdir(labelPath)
     data = []
     label = []
 
     print("Loading data")
 
     #Count the total number of samples in tensor_data folder
-    theSum = 0
-    for i in filelist:
-        x = np.load(dataPath+i,'r')
-        theSum += x.shape[0]
-    print(theSum)
-    theRatio = 20000/theSum
+    aminoAcids = []
+    for i in labellist:
+        x = np.load(labelPath+i,'r')
+        for j in x:
+            aminoAcids.append(j)
 
-    print(theRatio)
+    theRatios = {k:aminoAcids.count(k) for k in set(aminoAcids)}
+
+    theRatios.update((x, 1000/y) for x, y in theRatios.items())
 
     for j,i in enumerate(tqdm(filelist, total=1000)):
-        #print(i)
+        loadedFile = np.load(dataPath+i,'r')
+        fileName = i.split('_')[0]
+        loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
+        
         samplesToKeep = []
         labelsToKeep = []
 
-        loadedFile = np.load(dataPath+i,'r')
-        if loadedFile.shape[0] < 100:
-            continue
-        fileName = i.split('_')[0]
-        loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
-
-        for i,x in enumerate(loadedFile):
+        for i,aminoacid in enumerate(loadedLabels):
             rn.seed()
             theRandomNumber = rn.uniform(0,1)
             rn.seed(12345)
-            if theRandomNumber > theRatio:
+            if theRandomNumber > theRatios[aminoacid]:
                 continue
             else:
-                samplesToKeep.append(x)
-                labelsToKeep.append(loadedLabels[i])
+                samplesToKeep.append(loadedFile[i])
+                labelsToKeep.append(aminoacid)
 
-        samplesToKeep = np.stack(samplesToKeep, axis=0)
-        labelsToKeep = np.stack(labelsToKeep, axis=0)
-        data.append(samplesToKeep)
-        label.append(labelsToKeep)
+        if (len(samplesToKeep) != 0):
+            samplesToKeep = np.stack(samplesToKeep, axis=0)
+            labelsToKeep = np.stack(labelsToKeep, axis=0)
+            data.append(samplesToKeep)
+            label.append(labelsToKeep)
 
     data = np.concatenate(data, axis=0)
     label = np.concatenate(label, axis=0)
-    
-    print(data.shape)
-    print(label.shape)
+
+    theListForm = label.tolist()
+    theDistribution = {k:theListForm.count(k) for k in set(theListForm)}
+
+    print(theDistribution)
 
     returnLabel = label
 
@@ -146,19 +152,20 @@ def create_model():
 
     #another convolution layer, max pooling, another convolution layer 3x3x3
     flatten1 = Flatten()(pool3)
-    drop2 = Dropout(0.25)(flatten1)
+    #drop2 = Dropout(0.25)(flatten1)
     #dense0 = Dense(400, activation='relu')(flatten1)
-    dense1 = Dense(100, activation='relu')(drop2)
+    dense1 = Dense(100, activation='relu')(flatten1)
     #drop2 = Dropout(0.25)(dense1)
     out = Dense(20, activation='softmax')(dense1)
     model = Model(input= inputs,output = out)
 
     model.summary()
 
-    #import os.path
-    #if os.path.isfile('my_model.h5') == True:
-        #model = load_model('my_model.h5')
-        #print("Model loaded")
+    # import os.path
+    # if os.path.isfile('my_model.h5') == True:
+    #     model = load_model('my_model.h5')
+    #     print("Model loaded")
+    #     model.summary()
 
     # Run it
     #sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum = 0.9)
@@ -189,6 +196,40 @@ def train_and_evaluate_model(model, train_data, train_labels, test_data,test_lab
 
     #model.save('my_model.h5')
 
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
+    else:
+        print('Confusion matrix, without normalization')
+
+    print(cm)
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+
 if __name__ == "__main__":
    
     data, labels, proteins = load_data()
@@ -204,11 +245,26 @@ if __name__ == "__main__":
         newTrainData = []
         for nparray in data:
             newTrainData.append(np.take(nparray,train_index,axis=0))
-        newTestData = []
+        newValidationData = []
         for nparray in data:
-            newTestData.append(np.take(nparray,test_index,axis=0))
+            newValidationData.append(np.take(nparray,test_index,axis=0))
         model = None
         model = create_model()
-        train_and_evaluate_model(model,newTrainData,trainLabels,newTestData,validationLabels)
+        train_and_evaluate_model(model,newTrainData,trainLabels,newValidationData,validationLabels)
+
+        ########################### 
+        # Confusion matrix stuff: #
+        ########################### 
+
+        predictions = model.predict(newValidationData,batch_size=1,verbose=0)
+        predictions = predictions.argmax(axis=-1)
+        trueOutputs = validationLabels.argmax(axis=-1)
+
+        cm = confusion_matrix(trueOutputs,predictions)
+        classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+        plot_confusion_matrix(cm,classes)
+
+        plt.savefig('confusionMatrix.png')
+
         i+=1
         break
