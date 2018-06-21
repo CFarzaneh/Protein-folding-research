@@ -133,21 +133,21 @@ protein_grid_3D_val = protein_grid(grid_X_size,grid_Y_size,grid_Z_size,coord_X_m
 
 # Path of text files and storing tensors/labels
 #path = "/home/atharva/Desktop/2.coor/"
-path = "/home/cameron/Desktop/Protein-folding-research/inputFiles/"
-path_tensor = "/home/cameron/Desktop/tensor_data/"
-path_label = "/home/cameron/Desktop/tensor_label/"
+path = "/media/HDD2/2.label/"
+path_tensor = "/media/HDD2/new_tensor_data/"
+path_label = "/media/HDD2/new_tensor_label/"
 
 # List of all the files (10163 files)
 file_list = os.listdir(path)
 count = 0
 
-#ignore first 5, last 5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 #  I have converted 1000 files into 5D structure ( 5D numpy array) and able to extract
 # 460,733 samples of shape (21,18,18,18)
-for txt_file in tqdm(file_list[:1000]):
+for txt_file in tqdm(file_list):
 	if txt_file.endswith(".txt"):
 		txt_file = txt_file.split('.')[0]
+		if os.path.isfile(path_tensor+txt_file+'_data.npy'):
+			continue
 		# Change txt file into numpy array
 		file_data(path,txt_file,protein_grid_3D_val,zero_channel21_4D_val,window_width,path_tensor,path_label)
 	count +=1

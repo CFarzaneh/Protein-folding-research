@@ -29,8 +29,8 @@ plt.switch_backend('agg')
 # For all the 1000 file, you can use each file as a batch
 
 def load_data():
-    dataPath = "/media/cameron/HDD2/tensor_data/"
-    labelPath = "/media/cameron/HDD2/tensor_label/"
+    dataPath = "/media/HDD2/new_tensor_data/"
+    labelPath = "/media/HDD2/new_tensor_label/"
 
     #dataPath= "/home/cameron/Desktop/tensor_data/"
     #labelPath = "/home/cameron/Desktop/tensor_label/"
@@ -50,10 +50,11 @@ def load_data():
             aminoAcids.append(j)
 
     theRatios = {k:aminoAcids.count(k) for k in set(aminoAcids)}
+    #minimum class, 13,886 samples 
 
-    theRatios.update((x, 1000/y) for x, y in theRatios.items())
+    theRatios.update((x, 5000/y) for x, y in theRatios.items())
 
-    for j,i in enumerate(tqdm(filelist, total=1000)):
+    for j,i in enumerate(tqdm(filelist, total=len(filelist))):
         loadedFile = np.load(dataPath+i,'r')
         fileName = i.split('_')[0]
         loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
@@ -61,14 +62,16 @@ def load_data():
         samplesToKeep = []
         labelsToKeep = []
 
-        for i,aminoacid in enumerate(loadedLabels):
+        for k,aminoacid in enumerate(loadedLabels):
             rn.seed()
             theRandomNumber = rn.uniform(0,1)
             rn.seed(12345)
+            #if aminoacid != 'TYR' and aminoacid != 'PHE':
+                #continue
             if theRandomNumber > theRatios[aminoacid]:
                 continue
             else:
-                samplesToKeep.append(loadedFile[i])
+                samplesToKeep.append(loadedFile[k])
                 labelsToKeep.append(aminoacid)
 
         if (len(samplesToKeep) != 0):
@@ -91,6 +94,7 @@ def load_data():
     # For all the file, you need to club all the labels files together and then change into one-hot encoding for sync
 
     classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+    #classes=['PHE','TYR']
     from sklearn.preprocessing import OneHotEncoder
     protein_label_encoder = pd.factorize(classes)
     encoder = OneHotEncoder()
@@ -106,6 +110,7 @@ def load_data():
     labels = np.array(theFinalLabels)
     labels = labels.reshape((-1,20))
 
+    print(labels)
     data1 = data.reshape((-1, 21, 19, 19, 19, 1))
 
     # For parallel 21 computations, Create 21 list to insert the model
