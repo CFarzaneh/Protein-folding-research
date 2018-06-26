@@ -21,108 +21,27 @@ import keras
 from time import time
 from tqdm import tqdm
 from keras.models import load_model
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import confusion_matrix
 import itertools
 import matplotlib.pyplot as plt
+import mmap
 plt.switch_backend('agg')
 # For all the 1000 file, you can use each file as a batch
 
 def load_data():
-    dataPath = "/media/HDD2/new_tensor_data/"
-    labelPath = "/media/HDD2/new_tensor_label/"
+    labelPath = "/media/cameron/HDD2/new_tensor_label/"
 
-    #dataPath= "/home/cameron/Desktop/tensor_data/"
-    #labelPath = "/home/cameron/Desktop/tensor_label/"
-
-    filelist = os.listdir(dataPath)
     labellist = os.listdir(labelPath)
-    data = []
-    label = []
-
-    print("Loading data")
-
-    #Count the total number of samples in tensor_data folder
+    
     aminoAcids = []
     for i in labellist:
         x = np.load(labelPath+i,'r')
         for j in x:
             aminoAcids.append(j)
 
-    theRatios = {k:aminoAcids.count(k) for k in set(aminoAcids)}
-    #minimum class, 13,886 samples 
-
-    theRatios.update((x, 5000/y) for x, y in theRatios.items())
-
-    for j,i in enumerate(tqdm(filelist, total=len(filelist))):
-        loadedFile = np.load(dataPath+i,'r')
-        fileName = i.split('_')[0]
-        loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
-        
-        samplesToKeep = []
-        labelsToKeep = []
-
-        for k,aminoacid in enumerate(loadedLabels):
-            rn.seed()
-            theRandomNumber = rn.uniform(0,1)
-            rn.seed(12345)
-            #if aminoacid != 'TYR' and aminoacid != 'PHE':
-                #continue
-            if theRandomNumber > theRatios[aminoacid]:
-                continue
-            else:
-                samplesToKeep.append(loadedFile[k])
-                labelsToKeep.append(aminoacid)
-
-        if (len(samplesToKeep) != 0):
-            samplesToKeep = np.stack(samplesToKeep, axis=0)
-            labelsToKeep = np.stack(labelsToKeep, axis=0)
-            data.append(samplesToKeep)
-            label.append(labelsToKeep)
-
-    data = np.concatenate(data, axis=0)
-    label = np.concatenate(label, axis=0)
-
-    theListForm = label.tolist()
-    theDistribution = {k:theListForm.count(k) for k in set(theListForm)}
-
-    print(theDistribution)
-
-    returnLabel = label
-
-    # Change label to one-hot encoding
-    # For all the file, you need to club all the labels files together and then change into one-hot encoding for sync
-
-    classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
-    #classes=['PHE','TYR']
-    from sklearn.preprocessing import OneHotEncoder
-    protein_label_encoder = pd.factorize(classes)
-    encoder = OneHotEncoder()
-    protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
-    onehot_array = protein_labels_1hot.toarray()
-
-    d1 = dict(zip(classes,onehot_array.tolist()))
-    theFinalLabels = []
-    for aminoacid in label:
-        encoding = d1[aminoacid]
-        theFinalLabels.append(encoding)
-
-    labels = np.array(theFinalLabels)
-    labels = labels.reshape((-1,20))
-
-    print(labels)
-    data1 = data.reshape((-1, 21, 19, 19, 19, 1))
-
-    # For parallel 21 computations, Create 21 list to insert the model
-    data2 = [[] for _ in range(21)]
-    for sample in data1:
-        for ind,val in enumerate(sample):
-            data2[ind].append(val)
-    data2 = [np.array(i) for i in data2]
-
-    #Demo Architecture
-    #plot_losses = livelossplot.PlotLossesKeras()
-    return data2, labels, returnLabel
+    return aminoAcids
 
 def parallel_computation(inputs):
     convs = []
@@ -173,31 +92,23 @@ def create_model():
     #     model.summary()
 
     # Run it
-    #sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum = 0.9)
     model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adam(lr=0.001),
               metrics=['accuracy'])
 
-
-    #Attempted to reduce learning rate to prevent it 'val_loss' from going up.
-    #reduce_lr can be used as a callback during fitting
-
-    #reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=1, min_lr = 0.00025)
-
     return model
 
 
-def train_and_evaluate_model(model, train_data, train_labels, test_data,test_labels):
+def train_and_evaluate_model(model, trainGen, testGen, totalAmount):
 
     tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
-    
-    model.fit(train_data, train_labels,
-        batch_size=50,
-        epochs=100,
-        verbose=2,
-        shuffle=True,
-        callbacks=[tensorboard],
-        validation_data=(test_data,test_labels))
+   
+    model.fit_generator(generator=trainGen,
+        steps_per_epoch=totalAmount/10,
+        epochs=10,
+        verbose=1,
+        validation_data=testGen,
+        validation_steps=totalAmount/10)
 
     #model.save('my_model.h5')
 
@@ -235,27 +146,87 @@ def plot_confusion_matrix(cm, classes,
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
 
+def get_num_lines(file_path):
+    fp = open(file_path, "r+")
+    buf = mmap.mmap(fp.fileno(), 0)
+    lines = 0
+    while buf.readline():
+        lines += 1
+    return lines
+
+def myAwesomeDataGenerator(indicies,batch_size=10):
+    i = 0
+    dataPath = "/media/cameron/HDD2/new_tensor_data/"
+    labelPath = "/media/cameron/HDD2/new_tensor_label/"
+    filelist = os.listdir(dataPath)
+
+    for file in filelist:
+        loadedFile = np.load(dataPath+file,'r')
+        fileName = file.split('_')[0]
+        numSamples = get_num_lines('/media/cameron/HDD2/2.label/'+fileName+'.txt')
+        #print(fileName,'num of samples:',numSamples)
+        loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
+        
+        samples = []
+        labels = []
+       
+        k = 0
+        for l,tensor in enumerate(loadedFile):
+            if i in indicies.tolist():
+                samples.append(tensor)
+                labels.append(loadedLabels[l])
+                k+=1
+            i+=1
+            if k == batch_size or l == numSamples-1 and k != 0:
+
+                samples = np.stack(samples, axis=0)
+                labels = np.stack(labels, axis=0)
+                
+                classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+                protein_label_encoder = pd.factorize(classes)
+                encoder = OneHotEncoder()
+                protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
+                onehot_array = protein_labels_1hot.toarray()
+
+                d1 = dict(zip(classes,onehot_array.tolist()))
+                theFinalLabels = []
+                for aminoacid in labels:
+                    encoding = d1[aminoacid]
+                    theFinalLabels.append(encoding)
+
+                nicelabels = np.array(theFinalLabels)
+                nicelabels = nicelabels.reshape((-1,20))
+                #Labels Done.
+
+                data = samples.reshape((-1, 21, 19, 19, 19, 1))
+
+                # For parallel 21 computations, Create 21 list to insert the model
+                data2 = [[] for _ in range(21)]
+                for sample in data:
+                    for ind,val in enumerate(sample):
+                        data2[ind].append(val)
+                data2 = [np.array(i) for i in data2]
+
+                yield data2, nicelabels
+
+                k = 0
+                samples = []
+                labels = []
+
 if __name__ == "__main__":
    
-    data, labels, proteins = load_data()
-    n_samples = proteins.shape[0]
-    print('Number of samples:', n_samples)
+    aminoAcids = load_data()
+    n_samples = len(aminoAcids)
     skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=1382)
 
-    i=1
-    for train_index, test_index in skf.split(X=np.zeros(n_samples),y=proteins):
-        #print('\nFold',i,'/10')
-        validationLabels = np.take(labels,test_index,axis=0)
-        trainLabels = np.take(labels,train_index,axis=0)
-        newTrainData = []
-        for nparray in data:
-            newTrainData.append(np.take(nparray,train_index,axis=0))
-        newValidationData = []
-        for nparray in data:
-            newValidationData.append(np.take(nparray,test_index,axis=0))
+    for train_index, test_index in skf.split(X=np.zeros(n_samples),y=aminoAcids):
+
+        trainGenerator = myAwesomeDataGenerator(train_index)
+        validationGenerator = myAwesomeDataGenerator(test_index)
+        
         model = None
         model = create_model()
-        train_and_evaluate_model(model,newTrainData,trainLabels,newValidationData,validationLabels)
+        train_and_evaluate_model(model,trainGenerator,validationGenerator,n_samples)
 
         ########################### 
         # Confusion matrix stuff: #
@@ -271,5 +242,4 @@ if __name__ == "__main__":
 
         plt.savefig('confusionMatrix.png')
 
-        i+=1
         break
