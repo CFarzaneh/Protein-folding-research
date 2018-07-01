@@ -99,16 +99,16 @@ def create_model():
     return model
 
 
-def train_and_evaluate_model(model, trainGen, testGen, totalAmount):
+def train_and_evaluate_model(model, trainGen, testGen, totalAmount, totalValidationAmount):
 
     tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
    
     model.fit_generator(generator=trainGen,
-        steps_per_epoch=totalAmount/10,
-        epochs=10,
-        verbose=1,
+        steps_per_epoch=104279,
+        epochs=3,
+        verbose=2,
         validation_data=testGen,
-        validation_steps=totalAmount/10)
+        validation_steps=totalValidationAmount/10)
 
     #model.save('my_model.h5')
 
@@ -160,58 +160,59 @@ def myAwesomeDataGenerator(indicies,batch_size=10):
     labelPath = "/media/cameron/HDD2/new_tensor_label/"
     filelist = os.listdir(dataPath)
 
-    for file in filelist:
-        loadedFile = np.load(dataPath+file,'r')
-        fileName = file.split('_')[0]
-        numSamples = get_num_lines('/media/cameron/HDD2/2.label/'+fileName+'.txt')
-        #print(fileName,'num of samples:',numSamples)
-        loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
+    while True:
+        for file in filelist:
+            loadedFile = np.load(dataPath+file,'r')
+            fileName = file.split('_')[0]
+            numSamples = get_num_lines('/media/cameron/HDD2/2.label/'+fileName+'.txt')
+            #print(fileName,'num of samples:',numSamples)
+            loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
         
-        samples = []
-        labels = []
+            samples = []
+            labels = []
        
-        k = 0
-        for l,tensor in enumerate(loadedFile):
-            if i in indicies.tolist():
-                samples.append(tensor)
-                labels.append(loadedLabels[l])
-                k+=1
-            i+=1
-            if k == batch_size or l == numSamples-1 and k != 0:
+            k = 0
+            for l,tensor in enumerate(loadedFile):
+                if i in indicies.tolist():
+                    samples.append(tensor)
+                    labels.append(loadedLabels[l])
+                    k+=1
+                i+=1
+                if k == batch_size or l == numSamples-1 and k != 0:
 
-                samples = np.stack(samples, axis=0)
-                labels = np.stack(labels, axis=0)
+                    samples = np.stack(samples, axis=0)
+                    labels = np.stack(labels, axis=0)
                 
-                classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
-                protein_label_encoder = pd.factorize(classes)
-                encoder = OneHotEncoder()
-                protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
-                onehot_array = protein_labels_1hot.toarray()
+                    classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+                    protein_label_encoder = pd.factorize(classes)
+                    encoder = OneHotEncoder()
+                    protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
+                    onehot_array = protein_labels_1hot.toarray()
 
-                d1 = dict(zip(classes,onehot_array.tolist()))
-                theFinalLabels = []
-                for aminoacid in labels:
-                    encoding = d1[aminoacid]
-                    theFinalLabels.append(encoding)
+                    d1 = dict(zip(classes,onehot_array.tolist()))
+                    theFinalLabels = []
+                    for aminoacid in labels:
+                        encoding = d1[aminoacid]
+                        theFinalLabels.append(encoding)
 
-                nicelabels = np.array(theFinalLabels)
-                nicelabels = nicelabels.reshape((-1,20))
-                #Labels Done.
+                    nicelabels = np.array(theFinalLabels)
+                    nicelabels = nicelabels.reshape((-1,20))
+                    #Labels Done.
 
-                data = samples.reshape((-1, 21, 19, 19, 19, 1))
+                    data = samples.reshape((-1, 21, 19, 19, 19, 1))
 
-                # For parallel 21 computations, Create 21 list to insert the model
-                data2 = [[] for _ in range(21)]
-                for sample in data:
-                    for ind,val in enumerate(sample):
-                        data2[ind].append(val)
-                data2 = [np.array(i) for i in data2]
+                    # For parallel 21 computations, Create 21 list to insert the model
+                    data2 = [[] for _ in range(21)]
+                    for sample in data:
+                        for ind,val in enumerate(sample):
+                            data2[ind].append(val)
+                    data2 = [np.array(i) for i in data2]
 
-                yield data2, nicelabels
+                    yield data2, nicelabels
 
-                k = 0
-                samples = []
-                labels = []
+                    k = 0
+                    samples = []
+                    labels = []
 
 if __name__ == "__main__":
    
@@ -226,7 +227,8 @@ if __name__ == "__main__":
         
         model = None
         model = create_model()
-        train_and_evaluate_model(model,trainGenerator,validationGenerator,n_samples)
+        print('Training with',n_samples-len(test_index.tolist()), 'validating with',len(test_index.tolist()))
+        train_and_evaluate_model(model,trainGenerator,validationGenerator,n_samples-len(test_index.tolist()),len(test_index.tolist()))
 
         ########################### 
         # Confusion matrix stuff: #
