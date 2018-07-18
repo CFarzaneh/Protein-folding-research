@@ -27,6 +27,7 @@ from sklearn.metrics import confusion_matrix
 import itertools
 import matplotlib.pyplot as plt
 import mmap
+import math
 plt.switch_backend('agg')
 # For all the 1000 file, you can use each file as a batch
 
@@ -85,6 +86,7 @@ def create_model():
 
     model.summary()
 
+    # This is used to load the model
     # import os.path
     # if os.path.isfile('my_model.h5') == True:
     #     model = load_model('my_model.h5')
@@ -99,18 +101,19 @@ def create_model():
     return model
 
 
-def train_and_evaluate_model(model, trainGen, testGen, totalAmount, totalValidationAmount):
+def train_and_evaluate_model(model, trainGen, testGen, trainAmount, testAmount):
 
     tensorboard = TensorBoard(log_dir="logs/{}".format(time()))
    
     model.fit_generator(generator=trainGen,
-        steps_per_epoch=104279,
-        epochs=3,
-        verbose=2,
+        steps_per_epoch=math.ceil(trainAmount/10),
+        epochs=8,
+        verbose=1,
         validation_data=testGen,
-        validation_steps=totalValidationAmount/10)
-
-    #model.save('my_model.h5')
+        validation_steps=math.ceil(testAmount/10))
+    
+    # Save the model
+    model.save('my_model.h5')
 
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
@@ -155,31 +158,40 @@ def get_num_lines(file_path):
     return lines
 
 def myAwesomeDataGenerator(indicies,batch_size=10):
-    i = 0
     dataPath = "/media/cameron/HDD2/new_tensor_data/"
     labelPath = "/media/cameron/HDD2/new_tensor_label/"
     filelist = os.listdir(dataPath)
+    lengthOfFiles = len(filelist)
 
     while True:
-        for file in filelist:
+        i = 0
+        k = 0
+        
+        lastFile = False
+        samples = []
+        labels = []
+       
+        sizes = []
+
+        for v,file in enumerate(filelist):
             loadedFile = np.load(dataPath+file,'r')
             fileName = file.split('_')[0]
             numSamples = get_num_lines('/media/cameron/HDD2/2.label/'+fileName+'.txt')
             #print(fileName,'num of samples:',numSamples)
+            sizes.append(numSamples)
             loadedLabels = np.load(labelPath+fileName+"_label.npy",'r')
         
-            samples = []
-            labels = []
-       
-            k = 0
+            if v == lengthOfFiles-1:
+                lastFile = True
+
             for l,tensor in enumerate(loadedFile):
                 if i in indicies.tolist():
                     samples.append(tensor)
                     labels.append(loadedLabels[l])
                     k+=1
                 i+=1
-                if k == batch_size or l == numSamples-1 and k != 0:
 
+                if k == batch_size or (l == numSamples-1 and k != 0 and lastFile == True):
                     samples = np.stack(samples, axis=0)
                     labels = np.stack(labels, axis=0)
                 
@@ -227,14 +239,14 @@ if __name__ == "__main__":
         
         model = None
         model = create_model()
-        print('Training with',n_samples-len(test_index.tolist()), 'validating with',len(test_index.tolist()))
+        print('Total samples',n_samples,'training with',n_samples-len(test_index.tolist()), 'validating with',len(test_index.tolist()))
         train_and_evaluate_model(model,trainGenerator,validationGenerator,n_samples-len(test_index.tolist()),len(test_index.tolist()))
 
         ########################### 
         # Confusion matrix stuff: #
         ########################### 
-
-        predictions = model.predict(newValidationData,batch_size=1,verbose=0)
+        '''
+        predictions = model.predict_generator(validationGenerator,steps=math.ceil(len(test_index.tolist())/10),verbose=0)
         predictions = predictions.argmax(axis=-1)
         trueOutputs = validationLabels.argmax(axis=-1)
 
@@ -243,5 +255,5 @@ if __name__ == "__main__":
         plot_confusion_matrix(cm,classes)
 
         plt.savefig('confusionMatrix.png')
-
+        '''
         break
