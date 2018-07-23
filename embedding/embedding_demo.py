@@ -34,8 +34,7 @@ plt.switch_backend('agg')
 def load_data():
     labelPath = "/media/cameron/HDD2/new_tensor_label/"
 
-    labellist = os.listdir(labelPath)
-    
+    labellist = sorted(os.listdir(labelPath))
     aminoAcids = []
     for i in labellist:
         x = np.load(labelPath+i,'r')
@@ -63,8 +62,9 @@ def create_model():
     pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
     conv3 = Conv3D(21,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(pool1)
+    conv4 = Conv3D(28,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(conv3)
 
-    pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
+    pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv4)
 
     '''
     conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv2) #3x3x3
@@ -78,10 +78,10 @@ def create_model():
     #another convolution layer, max pooling, another convolution layer 3x3x3
     flatten1 = Flatten()(pool3)
     #drop2 = Dropout(0.25)(flatten1)
-    #dense0 = Dense(400, activation='relu')(flatten1)
+    #dense0 = Dense(378, activation='relu')(flatten1)
     dense1 = Dense(100, activation='relu')(flatten1)
     #drop2 = Dropout(0.25)(dense1)
-    out = Dense(20, activation='softmax')(dense1)
+    out = Dense(2, activation='softmax')(dense1)
     model = Model(input= inputs,output = out)
 
     model.summary()
@@ -160,7 +160,7 @@ def get_num_lines(file_path):
 def myAwesomeDataGenerator(indicies,batch_size=10):
     dataPath = "/media/cameron/HDD2/new_tensor_data/"
     labelPath = "/media/cameron/HDD2/new_tensor_label/"
-    filelist = os.listdir(dataPath)
+    filelist = sorted(os.listdir(dataPath))
     lengthOfFiles = len(filelist)
 
     while True:
@@ -195,7 +195,8 @@ def myAwesomeDataGenerator(indicies,batch_size=10):
                     samples = np.stack(samples, axis=0)
                     labels = np.stack(labels, axis=0)
                 
-                    classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+                    #classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+                    classes=['PHE','TYR']
                     protein_label_encoder = pd.factorize(classes)
                     encoder = OneHotEncoder()
                     protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
@@ -208,7 +209,7 @@ def myAwesomeDataGenerator(indicies,batch_size=10):
                         theFinalLabels.append(encoding)
 
                     nicelabels = np.array(theFinalLabels)
-                    nicelabels = nicelabels.reshape((-1,20))
+                    nicelabels = nicelabels.reshape((-1,len(classes)))
                     #Labels Done.
 
                     data = samples.reshape((-1, 21, 19, 19, 19, 1))
@@ -220,6 +221,7 @@ def myAwesomeDataGenerator(indicies,batch_size=10):
                             data2[ind].append(val)
                     data2 = [np.array(i) for i in data2]
 
+                    #print(nicelabels)
                     yield data2, nicelabels
 
                     k = 0
@@ -233,12 +235,26 @@ if __name__ == "__main__":
     skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=1382)
 
     for train_index, test_index in skf.split(X=np.zeros(n_samples),y=aminoAcids):
+        theNewTrain = []
+        theNewTest = []
+        for l,amino in enumerate(aminoAcids):
+            if amino == 'TYR' or amino == 'PHE':
+                if l in train_index:
+                    theNewTrain.append(l)
+                else:
+                    theNewTest.append(l)
+          
+        train_index = np.array(theNewTrain)
+        test_index  = np.array(theNewTest)
+
+        n_samples = len(theNewTrain) + len(theNewTest)
 
         trainGenerator = myAwesomeDataGenerator(train_index)
         validationGenerator = myAwesomeDataGenerator(test_index)
         
         model = None
         model = create_model()
+        print('Running pairwise test on TYR and PHE')
         print('Total samples',n_samples,'training with',n_samples-len(test_index.tolist()), 'validating with',len(test_index.tolist()))
         train_and_evaluate_model(model,trainGenerator,validationGenerator,n_samples-len(test_index.tolist()),len(test_index.tolist()))
 
