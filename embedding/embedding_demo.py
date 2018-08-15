@@ -51,13 +51,11 @@ def parallel_computation(inputs):
     return keras.layers.Add()(convs)
 
 def create_model():
+    
     inputs = [Input(shape=(19,19,19,1)) for _ in range(21)] #19x19x19
     adds = parallel_computation(inputs)
 
     conv1 = Conv3D(7,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu', input_shape=(19,19,19,3))(adds) #3x3x3
-    #norm2 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv1)
-    #pool0 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv1)
-
     conv2 = Conv3D(14,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv1)
     pool1 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv2)
 
@@ -65,35 +63,22 @@ def create_model():
     conv4 = Conv3D(28,kernel_size=(3, 3, 3), strides=(1, 1, 1), activation='relu')(conv3)
 
     pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv4)
-
-    '''
-    conv3 = Conv3D(1,kernel_size=(3, 3, 3), strides=(1, 1, 1), padding = 'same', activation='relu')(conv2) #3x3x3
-    #norm3 = BatchNormalization(axis = -1, momentum = 0.99, epsilon = 0.001)(conv3)
-    pool2 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
-
-    conv3 = Conv3D(1,kernel_size=(1, 1, 1), strides=(1, 1, 1), activation='relu')(pool2) #3x3x3
-    pool3 = MaxPooling3D(pool_size=(2, 2, 2), strides=(2, 2, 2))(conv3)
-    '''
-
-    #another convolution layer, max pooling, another convolution layer 3x3x3
+  
     flatten1 = Flatten()(pool3)
-    #drop2 = Dropout(0.25)(flatten1)
-    #dense0 = Dense(378, activation='relu')(flatten1)
     dense1 = Dense(100, activation='relu')(flatten1)
-    #drop2 = Dropout(0.25)(dense1)
-    out = Dense(2, activation='softmax')(dense1)
+    out = Dense(20, activation='softmax')(dense1)
     model = Model(input= inputs,output = out)
 
-    model.summary()
-
-    # This is used to load the model
-    # import os.path
-    # if os.path.isfile('my_model.h5') == True:
-    #     model = load_model('my_model.h5')
-    #     print("Model loaded")
-    #     model.summary()
-
-    # Run it
+    #model.summary()
+    
+    #This is used to load the model
+    import os.path
+    if os.path.isfile('my_model.h5') == True:
+        model = load_model('my_model.h5')
+        print("Model loaded")
+        model.summary()
+    
+    #Run it
     model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adam(lr=0.001),
               metrics=['accuracy'])
@@ -195,8 +180,8 @@ def myAwesomeDataGenerator(indicies,batch_size=10):
                     samples = np.stack(samples, axis=0)
                     labels = np.stack(labels, axis=0)
                 
-                    #classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
-                    classes=['PHE','TYR']
+                    classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+                    #classes=['PHE','TYR']
                     protein_label_encoder = pd.factorize(classes)
                     encoder = OneHotEncoder()
                     protein_labels_1hot = encoder.fit_transform(protein_label_encoder[0].reshape(-1,1))
@@ -235,6 +220,8 @@ if __name__ == "__main__":
     skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=1382)
 
     for train_index, test_index in skf.split(X=np.zeros(n_samples),y=aminoAcids):
+        '''
+        #This is for pairwise testing!!
         theNewTrain = []
         theNewTest = []
         for l,amino in enumerate(aminoAcids):
@@ -246,23 +233,49 @@ if __name__ == "__main__":
           
         train_index = np.array(theNewTrain)
         test_index  = np.array(theNewTest)
-
         n_samples = len(theNewTrain) + len(theNewTest)
+        ''' 
 
         trainGenerator = myAwesomeDataGenerator(train_index)
-        validationGenerator = myAwesomeDataGenerator(test_index)
+        validationGenerator = myAwesomeDataGenerator(test_index[:100])
+        validationGenerator1 = myAwesomeDataGenerator(test_index[:100])
+        validationGenerator2 = myAwesomeDataGenerator(test_index[:100])
         
         model = None
         model = create_model()
-        print('Running pairwise test on TYR and PHE')
-        print('Total samples',n_samples,'training with',n_samples-len(test_index.tolist()), 'validating with',len(test_index.tolist()))
-        train_and_evaluate_model(model,trainGenerator,validationGenerator,n_samples-len(test_index.tolist()),len(test_index.tolist()))
+
+        np.set_printoptions(threshold=np.nan)
+        print('Here are the weights of the softmax layer:\n',model.layers[-1].get_weights()[0])
+       
+        #print('Running pairwise test on TYR and PHE')
+        #print('Total samples',n_samples,'training with',n_samples-len(test_index.tolist()), 'validating with',len(test_index.tolist()))
+        #train_and_evaluate_model(model,trainGenerator,validationGenerator,n_samples-len(test_index.tolist()),len(test_index.tolist()))
 
         ########################### 
         # Confusion matrix stuff: #
-        ########################### 
-        '''
-        predictions = model.predict_generator(validationGenerator,steps=math.ceil(len(test_index.tolist())/10),verbose=0)
+        ###########################
+
+        layer_name = 'flatten_1'
+        intermediate_layer_model = Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
+        predictions1 = intermediate_layer_model.predict_generator(validationGenerator,steps=math.ceil(len(test_index[:100].tolist())/10),verbose=0)
+
+        layer_name = 'dense_1'
+        intermediate_layer_model = Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
+        predictions2 = intermediate_layer_model.predict_generator(validationGenerator1,steps=math.ceil(len(test_index[:100].tolist())/10),verbose=0)
+
+        predictions = model.predict_generator(validationGenerator2,steps=math.ceil(len(test_index[:100].tolist())/10),verbose=0)
+
+        classes=['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+        predictionss = predictions.argmax(axis=-1)
+
+        print('Output from the layers')
+
+        for o,aminoA in enumerate(test_index[:100].tolist()):
+            print('True label:',aminoAcids[aminoA],'Predicted label:',classes[predictionss[o]])
+            print(predictions1[o].tolist())
+            print(predictions2[o].tolist())
+            print(predictions[o].tolist())
+
         predictions = predictions.argmax(axis=-1)
         trueOutputs = validationLabels.argmax(axis=-1)
 
@@ -271,5 +284,5 @@ if __name__ == "__main__":
         plot_confusion_matrix(cm,classes)
 
         plt.savefig('confusionMatrix.png')
-        '''
+
         break
